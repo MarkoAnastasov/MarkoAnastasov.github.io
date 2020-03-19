@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корона Вирус COVID-19</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/corona-icon.png">
+</head>
+
+<body>
+    <div id="header">
+        <div id="header-title">
+            <p id="first-title">КОРОНА ВИРУС</p>
+            <h1 id="second-title">COVID-19</h1>
+        </div>
+    </div>
+    <div id="menu">
+        <div id="menu-width">
+            <p>МЕНИ</p>
+            <span id="arrow-span">&#9660;</span>
+        </div>
+        <div id="menu-links">
+            <a href="./index.html" class="link" id="first-link">Почетна</a>
+            <a href="./pages/Q&A/answers.html" class="link" id="second-link">Прашања и Одговори</a>
+        </div>
+    </div>
+    <div id="menu-full">
+        <div id="menu-width">
+            <a href="./index.html" class="link" id="first-link">Почетна страна</a>
+            <img src="./images/header.png" alt="header" width="100%">
+            <a href="./pages/Q&A/answers.html" class="link" id="second-link">Прашања и Одговори</a>
+        </div>
+    </div>
+    <div id="container">
+        <div id="stats-width">
+            <div id="world">
+                <div id="world-stats">
+                    <h2 id="situation">Состојба во светот</h2>
+                    <img src="./images/world.png" alt="world" width="100%">
+                </div>
+                <div class="flex-stats">
+                    <div id="total-cases" class="div-stats">
+                        <h2>Број на држави во кои е потврдено присуство на COVID-19</h2>
+                        <h1 id="total-countries" class="numbers"></h1>
+                    </div>
+                    <div id="total-people" class="div-stats">
+                        <h2>Број на личности кај кои е потврдено присуство на COVID-19</h2>
+                        <h1 id="total-people-cases" class="numbers"></h1>
+                    </div>
+                    <div id="total-active" class="div-stats">
+                        <h2>Вкупен број на активни случаи на COVID-19</h2>
+                        <h1 id="total-active-cases" class="numbers"></h1>
+                    </div>
+                    <div id="total-deaths" class="div-stats">
+                        <h2>Вкупен број на смртни случаи поради COVID-19</h2>
+                        <h1 id="total-deaths-number" class="numbers"></h1>
+                    </div>
+                    <div id="total-recovered" class="div-stats">
+                        <h2>Вкупен број на личности кои се излечиле од COVID-19</h2>
+                        <h1 id="total-recovered-number" class="numbers"></h1>
+                    </div>
+                </div>
+            </div>
+            <div id="macedonia">
+                <div id="macedonia-stats">
+                    <h2 id="situation">Состојба во Северна Македонија</h2>
+                    <img src="./images/macedonia.png" alt="macedonia" width="100%">
+                </div>
+                <div class="flex-stats">
+                    <div id="total-people-mkd" class="div-stats">
+                        <h2>Број на личности кај кои е потврдено присуство на COVID-19</h2>
+                        <h1 id="total-mkd" class="numbers"></h1>
+                    </div>
+                    <div id="total-active-nmk" class="div-stats">
+                        <h2>Вкупен број на активни случаи на COVID-19</h2>
+                        <h1 id="total-active-mkd" class="numbers"></h1>
+                    </div>
+                    <div id="total-people-today" class="div-stats">
+                        <h2>Број на случаи откриени денес</h2>
+                        <h1 id="total-today" class="numbers"></h1>
+                    </div>
+                    <div id="total-deaths-nmkd" class="div-stats">
+                        <h2>Вкупен број на смртни случаи поради COVID-19</h2>
+                        <h1 id="total-deaths-mkd" class="numbers"></h1>
+                    </div>
+                    <div id="total-deaths-tday" class="div-stats">
+                        <h2>Вкупен број на смртни случаи денес</h2>
+                        <h1 id="total-deaths-today" class="numbers"></h1>
+                    </div>
+                    <div id="total-recovered-nmk" class="div-stats">
+                        <h2>Вкупен број на личности кои се излечиле од COVID-19</h2>
+                        <h1 id="total-recovered-mkd" class="numbers"></h1>
+                    </div>
+                    <div id="total-critical" class="div-stats">
+                        <h2>Вкупен број на личности кои се во критична состојба</h2>
+                        <h1 id="total-critical-mkd" class="numbers"></h1>
+                    </div>
+                </div>
+                <div id="mkd-chart">
+
+                </div>
+            </div>
+            <div id="question">
+                <div id="link-to">
+                    <h2>Што е COVID-19 и како да се заштитам?</h2>
+                    <a href="./pages/Q&A/answers.html" id="find-more-link">
+                        <h4 id="find-more">Дознај повеќе</h4>
+                    </a>
+                </div>
+            </div>
+            <div id="each-country">
+                <h2>Состојба во секоја држава</h2>
+                <div id="search-section">
+                    <label for="country-name-search" id="name-size">Име на држава:</label>
+                    <input type="text" id="country-name-search" placeholder="Пример: Germany" maxlength="100">
+                    <p id="search-button">Пребарај</p>
+                </div>
+                <div id="message-error">
+
+                </div>
+                <div id="country-details">
+
+                </div>
+            </div>
+            <div id="swipe">
+                <img src="./images/swipe.png" alt="swipe" width="100%">
+                <h3>Повлечете на прозорецот кон лево или десно за да ги видите сите држави!</h3>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <h2>Вашето здравје и здравјето на вашите придружници, зависат од вашата информираност и одржување на личната и
+            колективната хигиена!</h2>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
