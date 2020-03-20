@@ -117,9 +117,9 @@
         background-color: #ebedf1;
         color: #314080;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E
+        box-shadow: 0px 0px 12px -3px #314080;
     }
 
     #virus-origin img {
@@ -135,7 +135,7 @@
     }
 
     #virus-callnmb img {
-        border-radius: 5px;
+        border-radius: 2px;
         padding-top: 20px;
     }
 
@@ -203,6 +203,7 @@
     #menu-full img {
         width: 4%;
         margin-left: 4%;
+        align-self: center;
     }
 
     #menu-width {
@@ -221,7 +222,8 @@
         padding: 15px;
         text-decoration: none;
         color: white;
-        border-radius: 5px ;
+        border-radius: 2px;
+        align-self: center;
     }
 
     .link:visited {
@@ -270,14 +272,14 @@
         background-color: #ebedf1;
         color: #314080;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 2px;
         width: 40%;
         margin: 20px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E;
+        box-shadow: 0px 0px 12px -3px #314080;
     }
 
     .answer-design:hover {
-        box-shadow: 0px 0px 15px 0px #000000;
+        box-shadow: 0px 0px 15px 0px #314080;
     }
 
     #virus-origin img {
@@ -293,7 +295,7 @@
     }
 
     #virus-callnmb img {
-        border-radius: 5px;
+        border-radius: 2px;
         padding-top: 20px;
     }
 

@@ -144,9 +144,9 @@
         background-color: #ebedf1;
         color: #314080;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E;
+        box-shadow: 0px 0px 12px -3px #314080;;
     }
 
     #total-recovered {
@@ -177,17 +177,17 @@
         color: white;
         font-size: 20px;
         width: 60%;
-        border-radius: 5px;
+        border-radius: 2px;
     }
 
     #country-details {
         background: #ebedf1;
         border: 2px solid #314080;
-        border-radius: 5px;
+        border-radius: 3px;
         display: flex;
         flex-direction: row;
         margin-top: 35px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E;
+        box-shadow: 0px 0px 12px -3px #314080;
         overflow: auto;
         text-align: center;
         white-space: nowrap;
@@ -201,7 +201,7 @@
         font-size: 17px;
         border: 1px solid #314080;
         padding:5%;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-right: 5%;
         left:0;
         right: 0;
@@ -235,7 +235,7 @@
         color: white;
         font-size: 20px;
         width: 40%;
-        border-radius: 5px;
+        border-radius: 2px;
     }
 
     #country-name-search {
@@ -243,7 +243,7 @@
         color: #314080;
         background-color: #ebedf1 ;
         border: 1px solid #314080;
-        border-radius: 5px;
+        border-radius: 2px;
         text-align: center;
         width: 80%;
     }
@@ -316,6 +316,7 @@
     #menu-full img {
         width: 4%;
         margin-left: 4%;
+        align-self: center;
     }
 
     #menu-width {
@@ -334,7 +335,8 @@
         padding: 15px;
         text-decoration: none;
         color: white;
-        border-radius: 5px ;
+        border-radius: 2px;
+        align-self: center;
     }
 
     .link:visited {
@@ -406,14 +408,14 @@
         background-color: #ebedf1;
         color: #314080;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E;
+        box-shadow: 0px 0px 12px -3px #314080;
         width: 40%;
     }
 
     .div-stats:hover {
-        box-shadow: 0px 0px 15px 0px #000000;
+        box-shadow: 0px 0px 15px 0px #314080;
     }
 
     .flex-stats {
@@ -451,7 +453,7 @@
         color: white;
         font-size: 20px;
         width: 20%;
-        border-radius: 5px;
+        border-radius: 2px;
     }
 
     #find-more:hover {
@@ -461,12 +463,12 @@
     #country-details {
         background: #ebedf1;
         border: 2px solid #314080;
-        border-radius: 5px;
+        border-radius: 3px;
         display: flex;
         flex-direction: row;
         margin: 0 auto;
         margin-top: 20px;
-        box-shadow: 0px 0px 12px -3px #1E1E1E;
+        box-shadow: 0px 0px 12px -3px #314080;
         overflow: auto;
         text-align: center;
         white-space: nowrap;
@@ -482,7 +484,7 @@
         font-size: 17px;
         border: 1px solid #314080;
         padding:5%;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-right: 5%;
         left:0;
         right: 0;
@@ -516,7 +518,7 @@
         color: white;
         font-size: 20px;
         width: 15%;
-        border-radius: 5px;
+        border-radius: 2px;
     }
 
     #search-button:hover {
@@ -529,7 +531,7 @@
         color: #314080;
         background-color: #ebedf1 ;
         border: 1px solid #314080;
-        border-radius: 5px;
+        border-radius: 2px;
         padding-left: 10px;
     }
 
