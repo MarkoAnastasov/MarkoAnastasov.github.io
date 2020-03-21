@@ -30,6 +30,63 @@ async function getData(path) {
         });
 }
 
+async function getDataParsed(path) {
+    return axios.get(path, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    })
+        .then((response) => {
+            let data = response.data;
+            return data;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+function loadCharts() {
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(generateGraphMacedonia);
+}
+
+function resizeChart() {
+    window.onresize = function () {
+        generateGraphMacedonia();
+    };
+
+    window.onload = function () {
+        generateGraphMacedonia();
+    };
+}
+
+async function generateGraphMacedonia() {
+    var dataHistory = await getDataParsed('https://corona.lmao.ninja/historical');
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Датум')
+    data.addColumn('number', 'Вкупно');
+    var pastCases;
+    var pastDates;
+    for (var i = 0; i < dataHistory.length; i++) {
+        if (dataHistory[i].country === "North Macedonia") {
+            pastDates = Object.keys(dataHistory[i].timeline.cases)
+            pastCases = Object.values(dataHistory[i].timeline.cases);
+        }
+    }
+    for (i = 0; i < pastDates.length; i++) {
+        data.addRow([pastDates[i], parseInt(pastCases[i])]);
+    }
+    var options = {
+        title: 'Вкупно случаи во С.Македонија',
+        legend: { position: 'bottom' },
+        vAxis: { viewWindowMode: "explicit", viewWindow: { min: 0 } },
+        backgroundColor: '#ebedf1'
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('mkd-chart'));
+    chart.draw(data, options);
+}
+
 async function generateOverview() {
     var data = await getData('https://covid-ca.azurewebsites.net/api/covid/overview');
     var totalPeople = document.getElementById("total-people-cases");
@@ -177,9 +234,12 @@ function findCountry() {
 }
 
 function toggleFunctions() {
+    loadCharts();
     toggleMenu();
     generateOverview();
     generateMacedonia();
+    generateGraphMacedonia();
+    resizeChart();
     generateCountries();
     toggleSlider();
     findCountry();
