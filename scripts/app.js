@@ -30,22 +30,6 @@ async function getData(path) {
         });
 }
 
-async function getDataParsed(path) {
-    return axios.get(path, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    })
-        .then((response) => {
-            let data = response.data;
-            return data;
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
-
 function loadCharts() {
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(generateGraphMacedonia);
@@ -62,23 +46,29 @@ function resizeChart() {
 }
 
 async function generateGraphMacedonia() {
-    var dataHistory = await getDataParsed('https://corona.lmao.ninja/historical');
+    var dataHistory = await getData('https://covid-ca.azurewebsites.net/api/covid/history');
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Датум')
+    data.addColumn('string', 'Датум');
     data.addColumn('number', 'Вкупно');
+    data.addColumn('number', 'Починати');
+    data.addColumn('number', 'Излечени');
     var pastCases;
+    var pastDeaths;
+    var pastRecovered;
     var pastDates;
     for (var i = 0; i < dataHistory.length; i++) {
         if (dataHistory[i].country === "North Macedonia") {
-            pastDates = Object.keys(dataHistory[i].timeline.cases)
+            pastDates = Object.keys(dataHistory[i].timeline.cases);
             pastCases = Object.values(dataHistory[i].timeline.cases);
+            pastDeaths = Object.values(dataHistory[i].timeline.deaths);
+            pastRecovered = Object.values(dataHistory[i].timeline.recovered);
         }
     }
     for (i = 0; i < pastDates.length; i++) {
-        data.addRow([pastDates[i], parseInt(pastCases[i])]);
+        data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i]), parseInt(pastRecovered[i])]);
     }
     var options = {
-        title: 'Вкупно случаи во С.Македонија',
+        title: 'Детална статистика за С.Македонија',
         legend: { position: 'bottom' },
         vAxis: { viewWindowMode: "explicit", viewWindow: { min: 0 } },
         backgroundColor: '#ebedf1'
@@ -93,10 +83,10 @@ async function generateOverview() {
     var totalActive = document.getElementById("total-active-cases");
     var totalDeaths = document.getElementById("total-deaths-number");
     var totalRecovered = document.getElementById("total-recovered-number")
-    var totalCases = data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    var totalCasesNmb = (data.cases - (data.deaths + data.recovered)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    var totalDeathsNmb = data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    var totalRecoveredNmb = data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    var totalCases = data.cases.toLocaleString('en-US');
+    var totalCasesNmb = (data.cases - (data.deaths + data.recovered)).toLocaleString('en-US');
+    var totalDeathsNmb = data.deaths.toLocaleString('en-US');
+    var totalRecoveredNmb = data.recovered.toLocaleString('en-US');
     totalPeople.innerText = totalCases;
     totalActive.innerText = totalCasesNmb;
     totalDeaths.innerText = totalDeathsNmb;
@@ -114,13 +104,13 @@ async function generateMacedonia() {
             var totalDeathsToday = document.getElementById("total-deaths-today");
             var totalRecovered = document.getElementById("total-recovered-mkd");
             var totalCritical = document.getElementById("total-critical-mkd");
-            var totalCases = country.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalActiveNmb = (country.cases - (country.deaths + country.recovered)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalTodayNmb = country.todayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalDeathsNmb = country.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalDeathsTodayNmb = country.todayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalRecoveredNmb = country.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            var totalCriticalNmb = country.critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            var totalCases = country.cases.toLocaleString('en-US');
+            var totalActiveNmb = (country.cases - (country.deaths + country.recovered)).toLocaleString('en-US');
+            var totalTodayNmb = country.todayCases.toLocaleString('en-US');
+            var totalDeathsNmb = country.deaths.toLocaleString('en-US');
+            var totalDeathsTodayNmb = country.todayDeaths.toLocaleString('en-US');
+            var totalRecoveredNmb = country.recovered.toLocaleString('en-US');
+            var totalCriticalNmb = country.critical.toLocaleString('en-US');
             totalPeople.innerText = totalCases;
             totalActive.innerText = totalActiveNmb;
             totalToday.innerText = totalTodayNmb;
@@ -145,24 +135,24 @@ async function generateCountries() {
         countryName.className = "contry-name-find";
         var totalCases = document.createElement("h3");
         totalCases.className = "header-border";
-        totalCases.innerText = `Вкупно случаи\n ${country.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalCases.innerText = `Вкупно случаи\n ${country.cases.toLocaleString('en-US')}`;
         var totalActive = document.createElement("h3");
         totalActive.className = "header-border";
-        totalActive.innerText = `Вкупно активни случаи\n ${(country.cases - (country.deaths + country.recovered)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalActive.innerText = `Вкупно активни случаи\n ${(country.cases - (country.deaths + country.recovered)).toLocaleString('en-US')}`;
         var totalToday = document.createElement("h3");
         totalToday.className = "header-border";
-        totalToday.innerText = `Вкупно случаи денес\n${country.todayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalToday.innerText = `Вкупно случаи денес\n${country.todayCases.toLocaleString('en-US')}`;
         var totalDeaths = document.createElement("h3");
         totalDeaths.className = "header-border";
-        totalDeaths.innerText = `Вкупно починати\n${country.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalDeaths.innerText = `Вкупно починати\n${country.deaths.toLocaleString('en-US')}`;
         var totalDeathsToday = document.createElement("h3");
         totalDeathsToday.className = "header-border";
-        totalDeathsToday.innerText = `Вкупно починати денес\n${country.todayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalDeathsToday.innerText = `Вкупно починати денес\n${country.todayDeaths.toLocaleString('en-US')}`;
         var totalRecovered = document.createElement("h3");
         totalRecovered.className = "header-border";
-        totalRecovered.innerText = `Вкупно излечени\n${country.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalRecovered.innerText = `Вкупно излечени\n${country.recovered.toLocaleString('en-US')}`;
         var totalCritical = document.createElement("h3");
-        totalCritical.innerText = `Вкупно во критична состојба\n${country.critical.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        totalCritical.innerText = `Вкупно во критична состојба\n${country.critical.toLocaleString('en-US')}`;
         divCreator.appendChild(countryName);
         divCreator.appendChild(totalCases);
         divCreator.appendChild(totalActive);
