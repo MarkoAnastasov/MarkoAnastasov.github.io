@@ -57,7 +57,7 @@ async function generateGraphMacedonia() {
     var pastRecovered;
     var pastDates;
     for (var i = 0; i < dataHistory.length; i++) {
-        if (dataHistory[i].country === "North Macedonia") {
+        if (dataHistory[i].country === "north macedonia") {
             pastDates = Object.keys(dataHistory[i].timeline.cases);
             pastCases = Object.values(dataHistory[i].timeline.cases);
             pastDeaths = Object.values(dataHistory[i].timeline.deaths);
