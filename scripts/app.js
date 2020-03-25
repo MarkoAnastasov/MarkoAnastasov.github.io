@@ -51,21 +51,18 @@ async function generateGraphMacedonia() {
     data.addColumn('string', 'Датум');
     data.addColumn('number', 'Вкупно');
     data.addColumn('number', 'Починати');
-    data.addColumn('number', 'Излечени');
     var pastCases;
     var pastDeaths;
-    var pastRecovered;
     var pastDates;
     for (var i = 0; i < dataHistory.length; i++) {
         if (dataHistory[i].country === "north macedonia") {
             pastDates = Object.keys(dataHistory[i].timeline.cases);
             pastCases = Object.values(dataHistory[i].timeline.cases);
             pastDeaths = Object.values(dataHistory[i].timeline.deaths);
-            pastRecovered = Object.values(dataHistory[i].timeline.recovered);
         }
     }
     for (i = 0; i < pastDates.length; i++) {
-        data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i]), parseInt(pastRecovered[i])]);
+        data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i])]);
     }
     var options = {
         title: 'Детална статистика за С.Македонија',
