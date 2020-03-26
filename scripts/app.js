@@ -46,7 +46,7 @@ function resizeChart() {
 }
 
 async function generateGraphMacedonia() {
-    var dataHistory = await getData('https://covid-ca.azurewebsites.net/api/covid/history');
+    var dataHistory = await getData('https://covid-ca.azurewebsites.net/api/covid/v2/history');
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Датум');
     data.addColumn('number', 'Вкупно');
@@ -54,15 +54,20 @@ async function generateGraphMacedonia() {
     var pastCases;
     var pastDeaths;
     var pastDates;
-    for (var i = 0; i < dataHistory.length; i++) {
-        if (dataHistory[i].country === "north macedonia") {
-            pastDates = Object.keys(dataHistory[i].timeline.cases);
-            pastCases = Object.values(dataHistory[i].timeline.cases);
-            pastDeaths = Object.values(dataHistory[i].timeline.deaths);
-        }
+    if (typeof dataHistory === 'undefined') {
+        data.addRow(["1/1/20", 0, 0]);
     }
-    for (i = 0; i < pastDates.length; i++) {
-        data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i])]);
+    else {
+        for (var i = 0; i < dataHistory.length; i++) {
+            if (dataHistory[i].country === "north macedonia") {
+                pastDates = Object.keys(dataHistory[i].timeline.cases);
+                pastCases = Object.values(dataHistory[i].timeline.cases);
+                pastDeaths = Object.values(dataHistory[i].timeline.deaths);
+            }
+        }
+        for (i = 0; i < pastDates.length; i++) {
+            data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i])]);
+        }
     }
     var options = {
         title: 'Детална статистика за С.Македонија',
@@ -121,49 +126,55 @@ async function generateMacedonia() {
 
 async function generateCountries() {
     var data = await getData('https://covid-ca.azurewebsites.net/api/covid/countries');
-    var totalCountries = document.getElementById("total-countries");
-    totalCountries.innerText = (data.length - 1);
     var countryDetails = document.getElementById("country-details");
-    data.forEach(country => {
-        var divCreator = document.createElement("div");
-        divCreator.className = "div-creator";
-        var countryFlag = document.createElement("img");
-        countryFlag.className = "country-flag";
-        countryFlag.src = country.countryInfo.flag;
-        var countryName = document.createElement("h2");
-        countryName.innerText = country.country;
-        countryName.className = "contry-name-find";
-        var totalCases = document.createElement("h3");
-        totalCases.className = "header-border";
-        totalCases.innerText = `Вкупно случаи\n ${country.cases.toLocaleString('en-US')}`;
-        var totalActive = document.createElement("h3");
-        totalActive.className = "header-border";
-        totalActive.innerText = `Вкупно активни случаи\n ${(country.cases - (country.deaths + country.recovered)).toLocaleString('en-US')}`;
-        var totalToday = document.createElement("h3");
-        totalToday.className = "header-border";
-        totalToday.innerText = `Вкупно случаи денес\n${country.todayCases.toLocaleString('en-US')}`;
-        var totalDeaths = document.createElement("h3");
-        totalDeaths.className = "header-border";
-        totalDeaths.innerText = `Вкупно починати\n${country.deaths.toLocaleString('en-US')}`;
-        var totalDeathsToday = document.createElement("h3");
-        totalDeathsToday.className = "header-border";
-        totalDeathsToday.innerText = `Вкупно починати денес\n${country.todayDeaths.toLocaleString('en-US')}`;
-        var totalRecovered = document.createElement("h3");
-        totalRecovered.className = "header-border";
-        totalRecovered.innerText = `Вкупно излечени\n${country.recovered.toLocaleString('en-US')}`;
-        var totalCritical = document.createElement("h3");
-        totalCritical.innerText = `Вкупно во критична состојба\n${country.critical.toLocaleString('en-US')}`;
-        divCreator.appendChild(countryFlag);
-        divCreator.appendChild(countryName);
-        divCreator.appendChild(totalCases);
-        divCreator.appendChild(totalActive);
-        divCreator.appendChild(totalToday);
-        divCreator.appendChild(totalDeaths);
-        divCreator.appendChild(totalDeathsToday);
-        divCreator.appendChild(totalRecovered);
-        divCreator.appendChild(totalCritical);
-        countryDetails.appendChild(divCreator);
-    });
+    if (typeof data === 'undefined') {
+        countryDetails.innerText = "(Немаме податоци моментално!)";
+        countryDetails.style.fontSize = "xx-large";
+    }
+    else {
+        var totalCountries = document.getElementById("total-countries");
+        totalCountries.innerText = (data.length - 1);
+        data.forEach(country => {
+            var divCreator = document.createElement("div");
+            divCreator.className = "div-creator";
+            var countryFlag = document.createElement("img");
+            countryFlag.className = "country-flag";
+            countryFlag.src = country.countryInfo.flag;
+            var countryName = document.createElement("h2");
+            countryName.innerText = country.country;
+            countryName.className = "contry-name-find";
+            var totalCases = document.createElement("h3");
+            totalCases.className = "header-border";
+            totalCases.innerText = `Вкупно случаи\n ${country.cases.toLocaleString('en-US')}`;
+            var totalActive = document.createElement("h3");
+            totalActive.className = "header-border";
+            totalActive.innerText = `Вкупно активни случаи\n ${(country.cases - (country.deaths + country.recovered)).toLocaleString('en-US')}`;
+            var totalToday = document.createElement("h3");
+            totalToday.className = "header-border";
+            totalToday.innerText = `Вкупно случаи денес\n${country.todayCases.toLocaleString('en-US')}`;
+            var totalDeaths = document.createElement("h3");
+            totalDeaths.className = "header-border";
+            totalDeaths.innerText = `Вкупно починати\n${country.deaths.toLocaleString('en-US')}`;
+            var totalDeathsToday = document.createElement("h3");
+            totalDeathsToday.className = "header-border";
+            totalDeathsToday.innerText = `Вкупно починати денес\n${country.todayDeaths.toLocaleString('en-US')}`;
+            var totalRecovered = document.createElement("h3");
+            totalRecovered.className = "header-border";
+            totalRecovered.innerText = `Вкупно излечени\n${country.recovered.toLocaleString('en-US')}`;
+            var totalCritical = document.createElement("h3");
+            totalCritical.innerText = `Вкупно во критична состојба\n${country.critical.toLocaleString('en-US')}`;
+            divCreator.appendChild(countryFlag);
+            divCreator.appendChild(countryName);
+            divCreator.appendChild(totalCases);
+            divCreator.appendChild(totalActive);
+            divCreator.appendChild(totalToday);
+            divCreator.appendChild(totalDeaths);
+            divCreator.appendChild(totalDeathsToday);
+            divCreator.appendChild(totalRecovered);
+            divCreator.appendChild(totalCritical);
+            countryDetails.appendChild(divCreator);
+        });
+    }
 }
 
 function toggleSlider() {
