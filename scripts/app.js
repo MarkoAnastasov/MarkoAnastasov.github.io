@@ -127,6 +127,9 @@ async function generateCountries() {
     data.forEach(country => {
         var divCreator = document.createElement("div");
         divCreator.className = "div-creator";
+        var countryFlag = document.createElement("img");
+        countryFlag.className = "country-flag";
+        countryFlag.src = country.countryInfo.flag;
         var countryName = document.createElement("h2");
         countryName.innerText = country.country;
         countryName.className = "contry-name-find";
@@ -150,6 +153,7 @@ async function generateCountries() {
         totalRecovered.innerText = `Вкупно излечени\n${country.recovered.toLocaleString('en-US')}`;
         var totalCritical = document.createElement("h3");
         totalCritical.innerText = `Вкупно во критична состојба\n${country.critical.toLocaleString('en-US')}`;
+        divCreator.appendChild(countryFlag);
         divCreator.appendChild(countryName);
         divCreator.appendChild(totalCases);
         divCreator.appendChild(totalActive);
