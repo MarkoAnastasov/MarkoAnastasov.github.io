@@ -93,7 +93,7 @@ async function generateOverview() {
 async function generateMacedonia() {
     var data = await getData('https://covid-ca.azurewebsites.net/api/covid/countries');
     data.forEach(country => {
-        if (country.country === "North Macedonia") {
+        if (country.countryInfo.iso2 === "MK") {
             var totalPeople = document.getElementById("total-mkd");
             var totalActive = document.getElementById("total-active-mkd");
             var totalToday = document.getElementById("total-today");
