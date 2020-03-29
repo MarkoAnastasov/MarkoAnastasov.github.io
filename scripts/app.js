@@ -30,6 +30,22 @@ async function getData(path) {
         });
 }
 
+async function getDataParsed(path) {
+    return axios.get(path, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    })
+        .then((response) => {
+            let data = response.data;
+            return data;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
 function loadCharts() {
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(generateGraphMacedonia);
@@ -93,6 +109,55 @@ async function generateOverview() {
     totalActive.innerText = totalCasesNmb;
     totalDeaths.innerText = totalDeathsNmb;
     totalRecovered.innerText = totalRecoveredNmb;
+}
+
+async function showMacedoniaCities() {
+    var loading = true;
+    var showCitiesButton = document.getElementById("show-cities");
+    var modal = document.getElementById("cities-modal");
+    var tableDiv = document.getElementById("table");
+    var loadingMessage = document.getElementById("loading-message");
+    var span = document.getElementsByClassName("close")[0];
+    showCitiesButton.onclick = function () {
+        document.body.style.overflow = "hidden";
+        modal.style.display = "block";
+        if (loading == true) {
+            loadingMessage.innerText = "Ве молиме почекајте..."
+        }
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            document.body.style.overflow = "auto";
+            modal.style.display = "none";
+        }
+    }
+    var data = await getDataParsed('https://api.myjson.com/bins/15hwb8');
+    loading = false;
+    if (loading == false) {
+        var tableBody = document.getElementById("tbody");
+        loadingMessage.innerText = "";
+        for (var i = 0; i < data.length; i++) {
+            var tableRow = document.createElement("tr");
+            var city = document.createElement("td");
+            city.innerHTML = data[i].city;
+            city.style.fontWeight = "bold";
+            tableRow.appendChild(city);
+            var cases = document.createElement("td");
+            cases.innerHTML = data[i].cases;
+            tableRow.appendChild(cases);
+            var todayCases = document.createElement("td");
+            todayCases.innerHTML = data[i].todayCases;
+            tableRow.appendChild(todayCases);
+            var deaths = document.createElement("td");
+            deaths.innerHTML = data[i].deaths;
+            tableRow.appendChild(deaths);
+            tableBody.appendChild(tableRow);
+        }
+    }
 }
 
 async function generateMacedonia() {
@@ -240,6 +305,7 @@ function toggleFunctions() {
     toggleMenu();
     generateOverview();
     generateMacedonia();
+    showMacedoniaCities();
     generateGraphMacedonia();
     resizeChart();
     generateCountries();

@@ -76,6 +76,33 @@
                     <h2 id="situation">Состојба во Северна Македонија</h2>
                     <img src="./images/macedonia.png" alt="macedonia" width="100%">
                 </div>
+                <div id="mkd-cities">
+                    <h2 id="situation-cities">Состојба по градови</h2>
+                    <h4 id="show-cities">Прикажи градови</h4>
+                </div>
+                <div id="cities-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p id="loading-message"></p>
+                        <div id="table">
+                            <table class="cities-table">
+                                <thead>
+                                    <tr>
+                                        <th>Град</th>
+                                        <th>Вкупно случаи</th>
+                                        <th>Случаи денес</th>
+                                        <th>Вкупно починати</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <p id="source-message">*Податоците на оваа страна се неофицијални! За подетални информации
+                            следете ја страната на Министерство за Здравство!</p>
+                    </div>
+                </div>
                 <div class="flex-stats">
                     <div id="total-people-mkd" class="div-stats">
                         <h2>Број на личности кај кои е потврдено присуство на COVID-19</h2>

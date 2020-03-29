@@ -144,6 +144,113 @@
         color: #314080;
     }
 
+    #mkd-cities {
+        border: 1px solid #314080;
+        margin-bottom: 20px;
+        border-radius: 2px;
+    }
+
+    #situation-cities {
+        color: #314080;
+        margin-bottom: 10px;
+    }
+
+    #show-cities {
+        background-color: #314080;
+        padding:10px;
+        margin: 0 auto;
+        margin-top : 10px;
+        margin-bottom : 10px;
+        color: white;
+        font-size: 20px;
+        width: 80%;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    #show-cities:hover {
+        background-color: #2393D7 ;
+    }
+
+    #table {
+        font-size : 15px;
+        overflow-x:auto;
+        width: 100%;
+    }
+
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 9999999; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+    }
+      
+    .modal-content {
+        background-color: #f4f5f8;
+        margin: 15% auto; 
+        padding: 10px;
+        border: 1px solid #888;
+        width: 100%; 
+    }
+
+    table.cities-table {
+        width: 50%;
+        background-color: #ebedf1;
+        border-collapse: collapse;
+        border-width: 2px;
+        border-color: #314080;
+        border-style: solid;
+        color: #314080;
+        margin: 0 auto;
+    }
+      
+    table.cities-table td, table.cities-table th {
+        border-width: 2px;
+        border-color: #314080;
+        border-style: solid;
+        padding: 5px;
+    }
+      
+    table.cities-table thead {
+        background-color: #314080;
+        color: #FFFFFF;
+    }
+      
+    #loading-message {
+        font-size: 20px;
+        color: #314080;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        font-weight: bold;
+    }
+
+    #source-message {
+        font-size: 17px;
+        color: #314080;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+      
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
     .numbers {
         font-size: 40px;
     }
@@ -423,6 +530,113 @@
 
     #situation {
         color: #314080;
+    }
+
+    #mkd-cities {
+        border: 1px solid #314080;
+        width: 40%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border-radius: 2px;
+    }
+
+    #situation-cities {
+        color: #314080;
+        margin-bottom: 10px;
+    }
+
+    #show-cities {
+        background-color: #314080;
+        padding:10px;
+        margin: 0 auto;
+        margin-top : 10px;
+        margin-bottom : 10px;
+        color: white;
+        font-size: 20px;
+        width: 50%;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    #show-cities:hover {
+        background-color: #2393D7 ;
+    }
+
+    #table {
+        font-size : 25px;
+    }
+
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 9999999; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+    }
+      
+    .modal-content {
+        background-color: #f4f5f8;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+    }
+
+    table.cities-table {
+        width: 80%;
+        background-color: #ebedf1;
+        border-collapse: collapse;
+        border-width: 2px;
+        border-color: #314080;
+        border-style: solid;
+        color: #314080;
+        margin: 0 auto;
+    }
+      
+    table.cities-table td, table.cities-table th {
+        border-width: 2px;
+        border-color: #314080;
+        border-style: solid;
+        padding: 5px;
+    }
+      
+    table.cities-table thead {
+        background-color: #314080;
+        color: #FFFFFF;
+    }
+      
+    #loading-message {
+        font-size: 30px;
+        color: #314080;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        font-weight: bold;
+    }
+
+    #source-message {
+        font-size: 25px;
+        color: #314080;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+      
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
     }
 
     .numbers {
