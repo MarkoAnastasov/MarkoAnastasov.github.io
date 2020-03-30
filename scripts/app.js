@@ -113,14 +113,25 @@ async function generateOverview() {
 
 async function showMacedoniaCities() {
     var loading = true;
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFya29hbmFzdGFzb3YiLCJhIjoiY2s4ZG05NnluMDE2cDNtbzAzeDBxOTd6YSJ9.EGbzTxlSgYQl7cEjVR17Og';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [21.743258, 41.6137143],
+        zoom: 8
+    });
+    map.addControl(new mapboxgl.NavigationControl());
+    map.on('load', function () {
+        map.resize();
+    });
     var showCitiesButton = document.getElementById("show-cities");
     var modal = document.getElementById("cities-modal");
-    var tableDiv = document.getElementById("table");
     var loadingMessage = document.getElementById("loading-message");
     var span = document.getElementsByClassName("close")[0];
     showCitiesButton.onclick = function () {
         document.body.style.overflow = "hidden";
         modal.style.display = "block";
+        map.resize();
         if (loading == true) {
             loadingMessage.innerText = "Ве молиме почекајте..."
         }
@@ -138,24 +149,17 @@ async function showMacedoniaCities() {
     var data = await getDataParsed('https://api.myjson.com/bins/15hwb8');
     loading = false;
     if (loading == false) {
-        var tableBody = document.getElementById("tbody");
         loadingMessage.innerText = "";
         for (var i = 0; i < data.length; i++) {
-            var tableRow = document.createElement("tr");
-            var city = document.createElement("td");
-            city.innerHTML = data[i].city;
-            city.style.fontWeight = "bold";
-            tableRow.appendChild(city);
-            var cases = document.createElement("td");
-            cases.innerHTML = data[i].cases;
-            tableRow.appendChild(cases);
-            var todayCases = document.createElement("td");
-            todayCases.innerHTML = data[i].todayCases;
-            tableRow.appendChild(todayCases);
-            var deaths = document.createElement("td");
-            deaths.innerHTML = data[i].deaths;
-            tableRow.appendChild(deaths);
-            tableBody.appendChild(tableRow);
+            var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+                `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>\n<h2>Вкупно починати: ${data[i].deaths}</h2>`
+            );
+            var el = document.createElement('div');
+            el.className = 'marker';
+            new mapboxgl.Marker(el)
+            .setLngLat([data[i].longitude,data[i].latitude])
+            .setPopup(popup)
+            .addTo(map);
         }
     }
 }

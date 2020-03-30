@@ -76,10 +76,6 @@
         border-top: 1px solid white;
     }
 
-    .link:hover {
-        background-color: #2393D7;
-    }
-
     .link:visited {
         text-decoration: none;
     }
@@ -147,6 +143,7 @@
     #mkd-cities {
         border: 1px solid #314080;
         margin-bottom: 20px;
+        padding-top: 4px;
         border-radius: 2px;
     }
 
@@ -168,14 +165,25 @@
         cursor: pointer;
     }
 
-    #show-cities:hover {
-        background-color: #2393D7 ;
+    #map {
+        height: 500px;
+        width: 100%;
+        left: 0;
+        right: 0;
     }
 
-    #table {
-        font-size : 15px;
-        overflow-x:auto;
-        width: 100%;
+    .marker {
+        background: url("./images/info.png");
+        opacity: 70%;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+         
+    .mapboxgl-popup {
+        max-width: 200px;
+        text-align: center;
     }
 
     .modal {
@@ -192,34 +200,10 @@
     }
       
     .modal-content {
-        background-color: #f4f5f8;
-        margin: 15% auto; 
-        padding: 10px;
-        border: 1px solid #888;
-        width: 100%; 
-    }
-
-    table.cities-table {
-        width: 50%;
         background-color: #ebedf1;
-        border-collapse: collapse;
-        border-width: 2px;
-        border-color: #314080;
-        border-style: solid;
-        color: #314080;
-        margin: 0 auto;
-    }
-      
-    table.cities-table td, table.cities-table th {
-        border-width: 2px;
-        border-color: #314080;
-        border-style: solid;
-        padding: 5px;
-    }
-      
-    table.cities-table thead {
-        background-color: #314080;
-        color: #FFFFFF;
+        margin: 5% auto; 
+        padding: 10px;
+        width: 85%;
     }
       
     #loading-message {
@@ -537,6 +521,7 @@
         width: 40%;
         margin: 0 auto;
         margin-bottom: 20px;
+        padding-top: 4px;
         border-radius: 2px;
     }
 
@@ -562,8 +547,26 @@
         background-color: #2393D7 ;
     }
 
-    #table {
-        font-size : 25px;
+    #map {
+        height: 500px;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .marker {
+        background: url("./images/info.png");
+        opacity: 70%;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+         
+    .mapboxgl-popup {
+        max-width: 200px;
+        text-align: center;
     }
 
     .modal {
@@ -580,34 +583,10 @@
     }
       
     .modal-content {
-        background-color: #f4f5f8;
-        margin: 15% auto; 
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; 
-    }
-
-    table.cities-table {
-        width: 80%;
         background-color: #ebedf1;
-        border-collapse: collapse;
-        border-width: 2px;
-        border-color: #314080;
-        border-style: solid;
-        color: #314080;
-        margin: 0 auto;
-    }
-      
-    table.cities-table td, table.cities-table th {
-        border-width: 2px;
-        border-color: #314080;
-        border-style: solid;
-        padding: 5px;
-    }
-      
-    table.cities-table thead {
-        background-color: #314080;
-        color: #FFFFFF;
+        margin: 0 auto; 
+        padding: 20px;
+        width: 80%; 
     }
       
     #loading-message {
