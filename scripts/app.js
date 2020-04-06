@@ -146,13 +146,13 @@ async function showMacedoniaCities() {
             modal.style.display = "none";
         }
     }
-    var data = await getDataParsed('https://api.myjson.com/bins/15hwb8');
+    var data = await getDataParsed('http://markoanastasov-001-site1.itempurl.com/api/cities');
     loading = false;
     if (loading == false) {
         loadingMessage.innerText = "";
         for (var i = 0; i < data.length; i++) {
             var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-                `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>\n<h2>Вкупно починати: ${data[i].deaths}</h2>`
+                `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>`
             );
             var el = document.createElement('div');
             el.className = 'marker';
