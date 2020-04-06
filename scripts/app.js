@@ -31,10 +31,7 @@ async function getData(path) {
 }
 
 async function getDataParsed(path) {
-    const agent = new https.Agent({  
-        rejectUnauthorized: false
-      });
-    return axios.get(path, { httpsAgent: agent }, {
+    return axios.get(path, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
