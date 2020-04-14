@@ -5,6 +5,20 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#academy {
+    text-decoration: underline;
+}
+
+.link-two:link {
+    text-decoration: none;
+    color: white;
+}
+
+.link-two:visited {
+    text-decoration: none;
+    color: white;
+}
+
 @media only screen and (max-width: 750px) {
     #header {
         width: 100%;
@@ -156,6 +170,15 @@
         font-size: 10px;
         padding: 15px;
     }
+
+    #warning {
+        padding-bottom: 10px;
+    }
+
+    #code-academy img{
+        width: 50%;
+        cursor: pointer;
+    }
 }
 
 @media only screen and (min-width: 750px) {
@@ -166,7 +189,7 @@
     }
 
     #header-title {
-        width: 90%;
+        width: 85%;
         margin: 0 auto;
         padding: 30px;
         background-color: #EEEFF2;
@@ -314,6 +337,17 @@
         color: white;
         text-align: center;
         font-size: 15px;
-        padding: 13px;
+        padding: 15px;
+    }
+
+    #warning {
+        width: 70%;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+
+    #code-academy img{
+        width: 20%;
+        cursor: pointer;
     }
 }

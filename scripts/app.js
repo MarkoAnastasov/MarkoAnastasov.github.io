@@ -48,7 +48,7 @@ async function getDataParsed(path) {
 
 function loadCharts() {
     google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(generateGraphMacedonia);
+    google.charts.setOnLoadCallback(function() { generateGraphMacedonia() });
 }
 
 function resizeChart() {
@@ -58,11 +58,11 @@ function resizeChart() {
 
     window.onload = function () {
         generateGraphMacedonia();
-    };
+    }
 }
 
 async function generateGraphMacedonia() {
-    var dataHistory = await getData('https://covid-ca.azurewebsites.net/api/covid/v2/history');
+    var dataHistory = await getDataParsed('https://corona.lmao.ninja/v2/historical/mk');
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Датум');
     data.addColumn('number', 'Вкупно');
@@ -74,13 +74,9 @@ async function generateGraphMacedonia() {
         data.addRow(["1/1/20", 0, 0]);
     }
     else {
-        for (var i = 0; i < dataHistory.length; i++) {
-            if (dataHistory[i].country === "north macedonia" || dataHistory[i].country === "Macedonia" || dataHistory[i].country === "North Macedonia" ) {
-                pastDates = Object.keys(dataHistory[i].timeline.cases);
-                pastCases = Object.values(dataHistory[i].timeline.cases);
-                pastDeaths = Object.values(dataHistory[i].timeline.deaths);
-            }
-        }
+        pastDates = Object.keys(dataHistory.timeline.cases);
+        pastCases = Object.values(dataHistory.timeline.cases);
+        pastDeaths = Object.values(dataHistory.timeline.deaths);
         for (i = 0; i < pastDates.length; i++) {
             data.addRow([pastDates[i], parseInt(pastCases[i]), parseInt(pastDeaths[i])]);
         }
@@ -96,113 +92,102 @@ async function generateGraphMacedonia() {
 }
 
 async function generateOverview() {
-    var data = await getData('https://covid-ca.azurewebsites.net/api/covid/overview');
+    var data = await getDataParsed('https://corona.lmao.ninja/all');
+    var totalCountries = document.getElementById("total-countries");
     var totalPeople = document.getElementById("total-people-cases");
     var totalActive = document.getElementById("total-active-cases");
     var totalDeaths = document.getElementById("total-deaths-number");
-    var totalRecovered = document.getElementById("total-recovered-number")
-    var totalCases = data.cases.toLocaleString('en-US');
-    var totalCasesNmb = (data.cases - (data.deaths + data.recovered)).toLocaleString('en-US');
-    var totalDeathsNmb = data.deaths.toLocaleString('en-US');
-    var totalRecoveredNmb = data.recovered.toLocaleString('en-US');
-    totalPeople.innerText = totalCases;
-    totalActive.innerText = totalCasesNmb;
-    totalDeaths.innerText = totalDeathsNmb;
-    totalRecovered.innerText = totalRecoveredNmb;
+    var totalRecovered = document.getElementById("total-recovered-number");
+    var totalTests = document.getElementById("total-tests-number");
+    totalCountries.innerText = data.affectedCountries.toLocaleString('en-US');
+    totalPeople.innerText = data.cases.toLocaleString('en-US');
+    totalActive.innerText = data.active.toLocaleString('en-US');
+    totalDeaths.innerText = data.deaths.toLocaleString('en-US');
+    totalRecovered.innerText = data.recovered.toLocaleString('en-US');
+    totalTests.innerText = data.tests.toLocaleString("en-US");
 }
 
-async function showMacedoniaCities() {
-    var loading = true;
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWFya29hbmFzdGFzb3YiLCJhIjoiY2s4ZG05NnluMDE2cDNtbzAzeDBxOTd6YSJ9.EGbzTxlSgYQl7cEjVR17Og';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [21.743258, 41.6137143],
-        zoom: 8
-    });
-    map.addControl(new mapboxgl.NavigationControl());
-    map.on('load', function () {
-        map.resize();
-    });
-    var showCitiesButton = document.getElementById("show-cities");
-    var modal = document.getElementById("cities-modal");
-    var loadingMessage = document.getElementById("loading-message");
-    var span = document.getElementsByClassName("close")[0];
-    showCitiesButton.onclick = function () {
-        document.body.style.overflow = "hidden";
-        modal.style.display = "block";
-        map.resize();
-        if (loading == true) {
-            loadingMessage.innerText = "Ве молиме почекајте..."
-        }
-    }
-    span.onclick = function () {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            document.body.style.overflow = "auto";
-            modal.style.display = "none";
-        }
-    }
-    var data = await getDataParsed('http://markoanastasov-001-site1.itempurl.com/api/cities');
-    loading = false;
-    if (loading == false) {
-        loadingMessage.innerText = "";
-        for (var i = 0; i < data.length; i++) {
-            var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-                `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>`
-            );
-            var el = document.createElement('div');
-            el.className = 'marker';
-            new mapboxgl.Marker(el)
-            .setLngLat([data[i].longitude,data[i].latitude])
-            .setPopup(popup)
-            .addTo(map);
-        }
-    }
-}
+// async function showMacedoniaCities() {
+//     var loading = true;
+//     mapboxgl.accessToken = 'pk.eyJ1IjoibWFya29hbmFzdGFzb3YiLCJhIjoiY2s4ZG05NnluMDE2cDNtbzAzeDBxOTd6YSJ9.EGbzTxlSgYQl7cEjVR17Og';
+//     var map = new mapboxgl.Map({
+//         container: 'map',
+//         style: 'mapbox://styles/mapbox/streets-v11',
+//         center: [21.743258, 41.6137143],
+//         zoom: 8
+//     });
+//     map.addControl(new mapboxgl.NavigationControl());
+//     map.on('load', function () {
+//         map.resize();
+//     });
+//     var showCitiesButton = document.getElementById("show-cities");
+//     var modal = document.getElementById("cities-modal");
+//     var loadingMessage = document.getElementById("loading-message");
+//     var span = document.getElementsByClassName("close")[0];
+//     showCitiesButton.onclick = function () {
+//         document.body.style.overflow = "hidden";
+//         modal.style.display = "block";
+//         map.resize();
+//         if (loading == true) {
+//             loadingMessage.innerText = "Ве молиме почекајте..."
+//         }
+//     }
+//     span.onclick = function () {
+//         modal.style.display = "none";
+//         document.body.style.overflow = "auto";
+//     }
+//     window.onclick = function (event) {
+//         if (event.target == modal) {
+//             document.body.style.overflow = "auto";
+//             modal.style.display = "none";
+//         }
+//     }
+//     var data = await getDataParsed('http://markoanastasov-001-site1.itempurl.com/api/cities');
+//     loading = false;
+//     if (loading == false) {
+//         loadingMessage.innerText = "";
+//         for (var i = 0; i < data.length; i++) {
+//             var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+//                 `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>`
+//             );
+//             var el = document.createElement('div');
+//             el.className = 'marker';
+//             new mapboxgl.Marker(el)
+//                 .setLngLat([data[i].longitude, data[i].latitude])
+//                 .setPopup(popup)
+//                 .addTo(map);
+//         }
+//     }
+// }
 
 async function generateMacedonia() {
-    var data = await getData('https://covid-ca.azurewebsites.net/api/covid/countries');
-    data.forEach(country => {
-        if (country.countryInfo.iso2 === "MK") {
-            var totalPeople = document.getElementById("total-mkd");
-            var totalActive = document.getElementById("total-active-mkd");
-            var totalToday = document.getElementById("total-today");
-            var totalDeaths = document.getElementById("total-deaths-mkd");
-            var totalDeathsToday = document.getElementById("total-deaths-today");
-            var totalRecovered = document.getElementById("total-recovered-mkd");
-            var totalCritical = document.getElementById("total-critical-mkd");
-            var totalCases = country.cases.toLocaleString('en-US');
-            var totalActiveNmb = (country.cases - (country.deaths + country.recovered)).toLocaleString('en-US');
-            var totalTodayNmb = country.todayCases.toLocaleString('en-US');
-            var totalDeathsNmb = country.deaths.toLocaleString('en-US');
-            var totalDeathsTodayNmb = country.todayDeaths.toLocaleString('en-US');
-            var totalRecoveredNmb = country.recovered.toLocaleString('en-US');
-            var totalCriticalNmb = country.critical.toLocaleString('en-US');
-            totalPeople.innerText = totalCases;
-            totalActive.innerText = totalActiveNmb;
-            totalToday.innerText = totalTodayNmb;
-            totalDeaths.innerText = totalDeathsNmb;
-            totalDeathsToday.innerText = totalDeathsTodayNmb;
-            totalRecovered.innerText = totalRecoveredNmb;
-            totalCritical.innerText = totalCriticalNmb;
-        }
-    });
+    var country = await getDataParsed('https://corona.lmao.ninja/countries/mk');
+    var totalPeople = document.getElementById("total-mkd");
+    var totalActive = document.getElementById("total-active-mkd");
+    var totalToday = document.getElementById("total-today");
+    var totalDeaths = document.getElementById("total-deaths-mkd");
+    var totalDeathsToday = document.getElementById("total-deaths-today");
+    var totalRecovered = document.getElementById("total-recovered-mkd");
+    var totalCritical = document.getElementById("total-critical-mkd");
+    var totalTests = document.getElementById("total-tests-mkd");
+    totalPeople.innerText = country.cases.toLocaleString('en-US');
+    totalActive.innerText = country.active.toLocaleString('en-US');
+    totalToday.innerText = country.todayCases.toLocaleString('en-US');
+    totalDeaths.innerText = country.deaths.toLocaleString('en-US');
+    totalDeathsToday.innerText =  country.todayDeaths.toLocaleString('en-US');
+    totalRecovered.innerText = country.recovered.toLocaleString('en-US');
+    totalCritical.innerText = country.critical.toLocaleString('en-US');
+    totalTests.innerText = country.tests.toLocaleString('en-US');
 }
 
 async function generateCountries() {
-    var data = await getData('https://covid-ca.azurewebsites.net/api/covid/countries');
+    var data = await getDataParsed('https://corona.lmao.ninja/countries');
     var countryDetails = document.getElementById("country-details");
     if (typeof data === 'undefined') {
         countryDetails.innerText = "(Немаме податоци моментално!)";
         countryDetails.style.fontSize = "xx-large";
     }
     else {
-        var totalCountries = document.getElementById("total-countries");
-        totalCountries.innerText = (data.length - 1);
         data.forEach(country => {
             var divCreator = document.createElement("div");
             divCreator.className = "div-creator";
@@ -304,17 +289,25 @@ function findCountry() {
     }
 }
 
+function redirectTo(){
+    var findMore = document.getElementById("find-more");
+    findMore.onclick = function () {
+        window.location.href = "./answers/answers.html"
+    }
+}
+
 function toggleFunctions() {
     loadCharts();
     toggleMenu();
     generateOverview();
     generateMacedonia();
-    showMacedoniaCities();
-    generateGraphMacedonia();
+    // showMacedoniaCities();
     resizeChart();
+    generateGraphMacedonia();
     generateCountries();
     toggleSlider();
     findCountry();
+    redirectTo();
 }
 
 toggleFunctions();

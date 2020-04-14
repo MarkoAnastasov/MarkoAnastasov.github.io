@@ -5,6 +5,27 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#academy {
+    text-decoration: underline;
+}
+
+#total-recovered {
+    margin-bottom : 30px;
+}
+
+#total-tests{
+    margin-bottom : 30px;
+}
+
+.link-two:link {
+    text-decoration: none;
+    color: white;
+}
+
+.link-two:visited {
+    text-decoration: none;
+    color: white;
+}
 
 @media only screen and (max-width: 750px) {
     #header {
@@ -248,10 +269,6 @@
         box-shadow: 0px 0px 12px -3px #314080;
     }
 
-    #total-recovered {
-        margin-bottom : 30px;
-    }
-
     #macedonia-stats img {
         width: 60%;
         margin-top : 20px;
@@ -261,10 +278,6 @@
     #question {
         padding-top: 10px;
         color: #314080 ;
-    }
-
-    #find-more-link {
-        text-decoration: none;
     }
 
     #find-more {
@@ -350,6 +363,7 @@
         border-radius: 2px;
         text-align: center;
         width: 80%;
+        padding: 3px 5px;
     }
 
     #message-error {
@@ -373,6 +387,15 @@
         padding: 15px;
     }
 
+    #warning {
+        padding-bottom: 10px;
+    }
+
+    #code-academy img{
+        width: 50%;
+        cursor: pointer;
+    }
+
 }
 
 @media only screen and (min-width: 750px) {
@@ -383,7 +406,7 @@
     }
 
     #header-title {
-        width: 90%;
+        width: 85%;
         margin: 0 auto;
         padding: 30px;
         background-color: #EEEFF2;
@@ -643,10 +666,6 @@
         justify-content: space-evenly;
     }
 
-    #total-recovered {
-        margin-bottom : 30px;
-    }
-
     #macedonia-stats img {
         width: 30%;
         margin-top : 20px;
@@ -656,10 +675,6 @@
     #question {
         padding-top: 10px;
         color: #314080 ;
-    }
-
-    #find-more-link {
-        text-decoration: none;
     }
 
     #find-more {
@@ -672,6 +687,7 @@
         font-size: 20px;
         width: 20%;
         border-radius: 2px;
+        cursor: pointer;
     }
 
     #find-more:hover {
@@ -719,6 +735,7 @@
 
     #swipe {
         color: #314080;
+        font-size: 19px;
     }
 
     #swipe img{
@@ -755,7 +772,7 @@
         background-color: #ebedf1 ;
         border: 1px solid #314080;
         border-radius: 2px;
-        padding-left: 10px;
+        padding: 3px 5px;
     }
 
     #message-error {
@@ -772,5 +789,16 @@
         text-align: center;
         font-size: 15px;
         padding: 15px;
+    }
+
+    #warning {
+        width: 70%;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+
+    #code-academy img{
+        width: 20%;
+        cursor: pointer;
     }
 }
