@@ -26,7 +26,7 @@ async function getData(path) {
             return data;
         })
         .catch(error => {
-            
+
         });
 }
 
@@ -42,13 +42,8 @@ async function getDataParsed(path) {
             return data;
         })
         .catch(error => {
-            
-        });
-}
 
-async function loadCharts() {
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(function () { generateGraphMacedonia() });
+        });
 }
 
 function resizeChart() {
@@ -320,17 +315,20 @@ function redirectTo() {
 }
 
 function toggleFunctions() {
-    loadCharts();
-    generateGraphMacedonia();
-    toggleMenu();
-    generateOverview();
-    generateMacedonia();
-    // showMacedoniaCities();
-    resizeChart();
-    generateCountries();
-    toggleSlider();
-    findCountry();
-    redirectTo();
+    try {
+        resizeChart();
+        toggleMenu();
+        generateOverview();
+        generateMacedonia();
+        // showMacedoniaCities();
+        generateCountries();
+        toggleSlider();
+        findCountry();
+        redirectTo();
+    }
+    catch (err) {
+        console.log("");
+    }
 }
 
 toggleFunctions();
