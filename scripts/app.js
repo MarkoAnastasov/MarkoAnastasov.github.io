@@ -184,7 +184,7 @@ async function generateCountries() {
     var data = await getDataParsed('https://corona.lmao.ninja/countries');
     var countryDetails = document.getElementById("country-details");
     if (typeof data === 'undefined') {
-        countryDetails.innerText = "(Немаме податоци моментално!)";
+        countryDetails.innerText = "Немаме податоци моментално!";
         countryDetails.style.fontSize = "xx-large";
     }
     else {

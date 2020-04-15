@@ -137,15 +137,15 @@
     }
 
     #virus-origin img {
-        width: 40%;
+        width: 120px;
     }
 
     #virus-symptoms img {
-        width: 50%;
+        width: 140px;
     }
 
     #virus-prevention img {
-        width: 60%;
+        width: 160px;
     }
 
     #virus-callnmb img {
@@ -176,8 +176,7 @@
     }
 
     #code-academy img{
-        width: 50%;
-        cursor: pointer;
+        width: 200px;
     }
 }
 
@@ -224,8 +223,7 @@
     }
 
     #menu-full img {
-        width: 4%;
-        margin-left: 4%;
+        width: 40px;
         align-self: center;
     }
 
@@ -255,6 +253,8 @@
 
     #first-link {
         background-color: #5fa1d4;
+        width: 190px;
+        text-align: center;
     }
 
     #first-link:hover {
@@ -263,6 +263,8 @@
 
     #second-link {
         background-color: #2393D7;
+        width: 190px;
+        text-align: center;
     }
 
     #container {
@@ -273,12 +275,13 @@
 
     #answers-width {
         display: flex;
-        flex-flow: row;
+        flex-flow: column;
         flex-wrap: wrap;
         text-align: center;
         justify-content: space-evenly;
         width: 80%;
         margin: 0 auto;
+        align-content: center;
     }
 
     #answers-width h2 {
@@ -296,7 +299,7 @@
         color: #314080;
         padding: 10px;
         border-radius: 2px;
-        width: 40%;
+        width: 100%;
         margin: 20px;
         box-shadow: 0px 0px 12px -3px #314080;
     }
@@ -306,20 +309,21 @@
     }
 
     #virus-origin img {
-        width: 35%;
+        width: 150px;
     }
 
     #virus-symptoms img {
-        width: 40%;
+        width: 170px;
     }
 
     #virus-prevention img {
-        width: 55%;
+        width: 220px;
     }
 
     #virus-callnmb img {
         border-radius: 2px;
         padding-top: 20px;
+        width: 400px;
     }
 
     #link-to-min:link {
@@ -347,7 +351,18 @@
     }
 
     #code-academy img{
-        width: 20%;
+        width: 270px;
         cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .answer-design {
+        width: 40%;
+    }
+
+    #answers-width {
+        flex-flow: row;
+        flex-wrap: wrap;
     }
 }
