@@ -26,7 +26,7 @@ async function getData(path) {
             return data;
         })
         .catch(error => {
-            console.log(error);
+            
         });
 }
 
@@ -42,13 +42,13 @@ async function getDataParsed(path) {
             return data;
         })
         .catch(error => {
-            console.log(error);
+            
         });
 }
 
-function loadCharts() {
+async function loadCharts() {
     google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(function() { generateGraphMacedonia() });
+    google.charts.setOnLoadCallback(function () { generateGraphMacedonia() });
 }
 
 function resizeChart() {
@@ -62,18 +62,17 @@ function resizeChart() {
 }
 
 async function generateGraphMacedonia() {
-    var dataHistory = await getDataParsed('https://corona.lmao.ninja/v2/historical/mk');
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Датум');
     data.addColumn('number', 'Вкупно');
     data.addColumn('number', 'Починати');
+    data.addRow(["1/1/20", 0, 0]);
+    var dataHistory = await getDataParsed('https://corona.lmao.ninja/v2/historical/mk');
     var pastCases;
     var pastDeaths;
     var pastDates;
-    if (typeof dataHistory === 'undefined') {
-        data.addRow(["1/1/20", 0, 0]);
-    }
-    else {
+    if (typeof dataHistory != 'undefined') {
+        data.removeRow(0);
         pastDates = Object.keys(dataHistory.timeline.cases);
         pastCases = Object.values(dataHistory.timeline.cases);
         pastDeaths = Object.values(dataHistory.timeline.deaths);
@@ -93,18 +92,30 @@ async function generateGraphMacedonia() {
 
 async function generateOverview() {
     var data = await getDataParsed('https://corona.lmao.ninja/all');
-    var totalCountries = document.getElementById("total-countries");
-    var totalPeople = document.getElementById("total-people-cases");
-    var totalActive = document.getElementById("total-active-cases");
-    var totalDeaths = document.getElementById("total-deaths-number");
-    var totalRecovered = document.getElementById("total-recovered-number");
-    var totalTests = document.getElementById("total-tests-number");
-    totalCountries.innerText = data.affectedCountries.toLocaleString('en-US');
-    totalPeople.innerText = data.cases.toLocaleString('en-US');
-    totalActive.innerText = data.active.toLocaleString('en-US');
-    totalDeaths.innerText = data.deaths.toLocaleString('en-US');
-    totalRecovered.innerText = data.recovered.toLocaleString('en-US');
-    totalTests.innerText = data.tests.toLocaleString("en-US");
+    var loader = document.getElementsByClassName("loader-world");
+    if (typeof data != 'undefined') {
+        for (var i = 0; i < loader.length; i++) {
+            loader[i].style.display = "none";
+        }
+        var totalCountries = document.getElementById("total-countries");
+        var totalPeople = document.getElementById("total-people-cases");
+        var totalActive = document.getElementById("total-active-cases");
+        var totalDeaths = document.getElementById("total-deaths-number");
+        var totalRecovered = document.getElementById("total-recovered-number");
+        var totalTests = document.getElementById("total-tests-number");
+        totalCountries.innerText = data.affectedCountries.toLocaleString('en-US');
+        totalPeople.innerText = data.cases.toLocaleString('en-US');
+        totalActive.innerText = data.active.toLocaleString('en-US');
+        totalDeaths.innerText = data.deaths.toLocaleString('en-US');
+        totalRecovered.innerText = data.recovered.toLocaleString('en-US');
+        totalTests.innerText = data.tests.toLocaleString("en-US");
+    }
+    else if (typeof data === 'undefined') {
+        var imgWorld = document.getElementsByClassName("world-status");
+        for (var i = 0; i < imgWorld.length; i++) {
+            imgWorld[i].src = "./images/error.png";
+        }
+    }
 }
 
 // async function showMacedoniaCities() {
@@ -162,22 +173,34 @@ async function generateOverview() {
 
 async function generateMacedonia() {
     var country = await getDataParsed('https://corona.lmao.ninja/countries/mk');
-    var totalPeople = document.getElementById("total-mkd");
-    var totalActive = document.getElementById("total-active-mkd");
-    var totalToday = document.getElementById("total-today");
-    var totalDeaths = document.getElementById("total-deaths-mkd");
-    var totalDeathsToday = document.getElementById("total-deaths-today");
-    var totalRecovered = document.getElementById("total-recovered-mkd");
-    var totalCritical = document.getElementById("total-critical-mkd");
-    var totalTests = document.getElementById("total-tests-mkd");
-    totalPeople.innerText = country.cases.toLocaleString('en-US');
-    totalActive.innerText = country.active.toLocaleString('en-US');
-    totalToday.innerText = country.todayCases.toLocaleString('en-US');
-    totalDeaths.innerText = country.deaths.toLocaleString('en-US');
-    totalDeathsToday.innerText =  country.todayDeaths.toLocaleString('en-US');
-    totalRecovered.innerText = country.recovered.toLocaleString('en-US');
-    totalCritical.innerText = country.critical.toLocaleString('en-US');
-    totalTests.innerText = country.tests.toLocaleString('en-US');
+    var loader = document.getElementsByClassName("loader");
+    if (typeof country != 'undefined') {
+        for (var i = 0; i < loader.length; i++) {
+            loader[i].style.display = "none";
+        }
+        var totalPeople = document.getElementById("total-mkd");
+        var totalActive = document.getElementById("total-active-mkd");
+        var totalToday = document.getElementById("total-today");
+        var totalDeaths = document.getElementById("total-deaths-mkd");
+        var totalDeathsToday = document.getElementById("total-deaths-today");
+        var totalRecovered = document.getElementById("total-recovered-mkd");
+        var totalCritical = document.getElementById("total-critical-mkd");
+        var totalTests = document.getElementById("total-tests-mkd");
+        totalPeople.innerText = country.cases.toLocaleString('en-US');
+        totalActive.innerText = country.active.toLocaleString('en-US');
+        totalToday.innerText = country.todayCases.toLocaleString('en-US');
+        totalDeaths.innerText = country.deaths.toLocaleString('en-US');
+        totalDeathsToday.innerText = country.todayDeaths.toLocaleString('en-US');
+        totalRecovered.innerText = country.recovered.toLocaleString('en-US');
+        totalCritical.innerText = country.critical.toLocaleString('en-US');
+        totalTests.innerText = country.tests.toLocaleString('en-US');
+    }
+    else if (typeof data === 'undefined') {
+        var imgWorld = document.getElementsByClassName("status");
+        for (var i = 0; i < imgWorld.length; i++) {
+            imgWorld[i].src = "./images/error.png";
+        }
+    }
 }
 
 async function generateCountries() {
@@ -289,7 +312,7 @@ function findCountry() {
     }
 }
 
-function redirectTo(){
+function redirectTo() {
     var findMore = document.getElementById("find-more");
     findMore.onclick = function () {
         window.location.href = "./answers/answers.html"
@@ -298,12 +321,12 @@ function redirectTo(){
 
 function toggleFunctions() {
     loadCharts();
+    generateGraphMacedonia();
     toggleMenu();
     generateOverview();
     generateMacedonia();
     // showMacedoniaCities();
     resizeChart();
-    generateGraphMacedonia();
     generateCountries();
     toggleSlider();
     findCountry();

@@ -27,6 +27,24 @@
     color: white;
 }
 
+.loader {
+    text-align: center;
+}
+
+.loader img{
+    width: 49px;
+    height: 45px;
+}
+
+.loader-world {
+    text-align: center;
+}
+
+.loader-world img{
+    width: 49px;
+    height: 45px;
+}
+
 @media only screen and (max-width: 750px) {
     #header {
         width: 100%;
