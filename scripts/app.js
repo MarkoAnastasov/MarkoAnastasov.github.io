@@ -86,7 +86,7 @@ async function generateGraphMacedonia() {
 }
 
 async function generateOverview() {
-    var data = await getDataParsed('https://corona.lmao.ninja/all');
+    var data = await getDataParsed('https://corona.lmao.ninja/v2/all');
     var loader = document.getElementsByClassName("loader-world");
     if (typeof data != 'undefined') {
         for (var i = 0; i < loader.length; i++) {
@@ -167,7 +167,7 @@ async function generateOverview() {
 // }
 
 async function generateMacedonia() {
-    var country = await getDataParsed('https://corona.lmao.ninja/countries/mk');
+    var country = await getDataParsed('https://corona.lmao.ninja/v2/countries/mk');
     var loader = document.getElementsByClassName("loader");
     if (typeof country != 'undefined') {
         for (var i = 0; i < loader.length; i++) {
@@ -199,7 +199,7 @@ async function generateMacedonia() {
 }
 
 async function generateCountries() {
-    var data = await getDataParsed('https://corona.lmao.ninja/countries');
+    var data = await getDataParsed('https://corona.lmao.ninja/v2/countries');
     var countryDetails = document.getElementById("country-details");
     if (typeof data === 'undefined') {
         countryDetails.innerText = "Немаме податоци моментално!";
