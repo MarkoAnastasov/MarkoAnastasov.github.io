@@ -123,6 +123,10 @@
         background-color: #314080;
     }
 
+    #third-link{
+        background-color: #314080;
+    }
+
     #container {
         background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
         padding-bottom: 30px;
@@ -220,56 +224,7 @@
         max-width: 200px;
         text-align: center;
     }
-
-    .modal {
-        display: none; 
-        position: fixed; 
-        z-index: 9999999; 
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto;
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-    }
-      
-    .modal-content {
-        background-color: #ebedf1;
-        margin: 5% auto; 
-        padding: 10px;
-        width: 85%;
-    }
-      
-    #loading-message {
-        font-size: 20px;
-        color: #314080;
-        margin-top: 10px;
-        margin-bottom: 40px;
-        font-weight: bold;
-    }
-
-    #source-message {
-        font-size: 17px;
-        color: #314080;
-        margin-top: 20px;
-        font-weight: bold;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-      
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
+    
     .numbers {
         font-size: 40px;
     }
@@ -606,55 +561,6 @@
     .mapboxgl-popup {
         max-width: 200px;
         text-align: center;
-    }
-
-    .modal {
-        display: none; 
-        position: fixed; 
-        z-index: 9999999; 
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto;
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-    }
-      
-    .modal-content {
-        background-color: #ebedf1;
-        margin: 0 auto; 
-        padding: 20px;
-        width: 80%; 
-    }
-      
-    #loading-message {
-        font-size: 30px;
-        color: #314080;
-        margin-top: 10px;
-        margin-bottom: 40px;
-        font-weight: bold;
-    }
-
-    #source-message {
-        font-size: 25px;
-        color: #314080;
-        margin-top: 30px;
-        font-weight: bold;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-      
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
     }
 
     .numbers {

@@ -19,6 +19,19 @@
     color: white;
 }
 
+#cities-situation {
+    text-align: center;
+    color:#314080;
+    padding-bottom: 5px;
+}
+
+#no-data {
+    color: #314080;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 750px) {
     #header {
         width: 100%;
@@ -102,11 +115,11 @@
     }
 
     #second-link {
-        background-color: #314080;
-    }
-
-    #third-link {
         background-color: #2393D7;
+    }
+    
+    #third-link {
+        background-color: #314080;
     }
 
     #container {
@@ -115,56 +128,29 @@
         padding-bottom: 30px;
     }
 
-    #answers-width {
+    #cities-map {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #map {
+        height: 500px;
+        width: 90%;
+        left: 0;
+        right: 0;
         margin: 0 auto;
-        width: 80%;
-        text-align: center;
+        border: 2px solid #314080;
+        margin-top: 10px;
     }
 
-    #answers-width h2 {
-        padding-bottom: 20px;
-    }
-
-    #answers-width p {
-        padding-top: 10px;
-        text-align: left;
-        font-size: 19px;
-    }
-
-    .answer-design {
-        background-color: #ebedf1;
-        color: #314080;
-        padding: 10px;
-        border-radius: 2px;
-        margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
-    }
-
-    #virus-origin img {
-        width: 120px;
-    }
-
-    #virus-symptoms img {
-        width: 140px;
-    }
-
-    #virus-prevention img {
-        width: 160px;
-    }
-
-    #virus-callnmb img {
-        border-radius: 2px;
-        padding-top: 20px;
-    }
-
-    #link-to-min:link {
-        font-weight: bold;
-        color: #314080;
-    }
-
-    #link-to-min:visited {
-        font-weight: bold;
-        color: #314080;
+    .marker {
+        background: url("../images/info.png");
+        opacity: 70%;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
     }
 
     #footer {
@@ -281,67 +267,35 @@
         padding-bottom: 30px;
     }
 
-    #answers-width {
-        display: flex;
-        flex-flow: column;
-        flex-wrap: wrap;
-        text-align: center;
-        justify-content: space-evenly;
-        width: 80%;
+    #cities-map {
+        width: 90%;
         margin: 0 auto;
-        align-content: center;
+        padding: 30px;
+        margin-bottom: 30px;
     }
 
-    #answers-width h2 {
-        padding-bottom: 20px;
-    }
-
-    #answers-width p {
-        padding-top: 10px;
-        text-align: left;
-        font-size: 19px;
-    }
-
-    .answer-design {
-        background-color: #ebedf1;
-        color: #314080;
-        padding: 10px;
-        border-radius: 2px;
+    #map {
+        height: 500px;
         width: 100%;
-        margin: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border: 2px solid #314080;
     }
 
-    .answer-design:hover {
-        box-shadow: 0px 0px 15px 0px #314080;
+    .marker {
+        background: url("../images/info.png");
+        opacity: 70%;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
     }
-
-    #virus-origin img {
-        width: 150px;
-    }
-
-    #virus-symptoms img {
-        width: 170px;
-    }
-
-    #virus-prevention img {
-        width: 220px;
-    }
-
-    #virus-callnmb img {
-        border-radius: 2px;
-        padding-top: 20px;
-        width: 400px;
-    }
-
-    #link-to-min:link {
-        font-weight: bold;
-        color: #314080;
-    }
-
-    #link-to-min:visited {
-        font-weight: bold;
-        color: #314080;
+         
+    .mapboxgl-popup {
+        max-width: 200px;
+        text-align: center;
     }
 
     #footer {
@@ -362,15 +316,8 @@
         width: 270px;
         cursor: pointer;
     }
-}
 
-@media only screen and (min-width: 1350px) {
-    .answer-design {
-        width: 40%;
-    }
-
-    #answers-width {
-        flex-flow: row;
-        flex-wrap: wrap;
+    #no-data{
+        font-size: 20px;
     }
 }

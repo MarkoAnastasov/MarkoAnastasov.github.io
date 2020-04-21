@@ -12,8 +12,6 @@
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback( function() { generateGraphMacedonia() });
     </script>
-    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' /> -->
 </head>
 
 <body>
@@ -30,14 +28,15 @@
         </div>
         <div id="menu-links">
             <a href="./index.html" class="link" id="first-link">Почетна</a>
-            <a href="./answers/answers.html" class="link" id="second-link">Прашања и Одговори</a>
+            <a href="./cities/cities.html" class="link" id="second-link">Состојба по градови</a>
+            <a href="./answers/answers.html" class="link" id="third-link">Прашања и одговори</a>
         </div>
     </div>
     <div id="menu-full">
         <div id="menu-width">
             <a href="./index.html" class="link" id="first-link">Почетна страна</a>
             <img src="./images/header.png" alt="header" width="100%">
-            <a href="./answers/answers.html" class="link" id="second-link">Прашања и Одговори</a>
+            <a href="./cities/cities.html" class="link" id="second-link">Состојба по градови</a>
         </div>
     </div>
     <div id="container">
@@ -100,17 +99,6 @@
                 <div id="mkd-cities">
                     <h2 id="situation-cities">Состојба по градови</h2>
                     <h4 id="show-cities">Прикажи мапа</h4>
-                </div>
-                <div id="cities-modal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p id="loading-message"></p>
-                        <div id="map">
-
-                        </div>
-                        <p id="source-message">*Податоците на оваа страна се неофицијални! За подетални информации
-                            следете ја страната на Министерство за Здравство!</p>
-                    </div>
                 </div>
                 <div class="flex-stats">
                     <div id="total-people-mkd" class="div-stats">

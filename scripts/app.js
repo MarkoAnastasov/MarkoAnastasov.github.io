@@ -113,59 +113,6 @@ async function generateOverview() {
     }
 }
 
-// async function showMacedoniaCities() {
-//     var loading = true;
-//     mapboxgl.accessToken = 'pk.eyJ1IjoibWFya29hbmFzdGFzb3YiLCJhIjoiY2s4ZG05NnluMDE2cDNtbzAzeDBxOTd6YSJ9.EGbzTxlSgYQl7cEjVR17Og';
-//     var map = new mapboxgl.Map({
-//         container: 'map',
-//         style: 'mapbox://styles/mapbox/streets-v11',
-//         center: [21.743258, 41.6137143],
-//         zoom: 8
-//     });
-//     map.addControl(new mapboxgl.NavigationControl());
-//     map.on('load', function () {
-//         map.resize();
-//     });
-//     var showCitiesButton = document.getElementById("show-cities");
-//     var modal = document.getElementById("cities-modal");
-//     var loadingMessage = document.getElementById("loading-message");
-//     var span = document.getElementsByClassName("close")[0];
-//     showCitiesButton.onclick = function () {
-//         document.body.style.overflow = "hidden";
-//         modal.style.display = "block";
-//         map.resize();
-//         if (loading == true) {
-//             loadingMessage.innerText = "Ве молиме почекајте..."
-//         }
-//     }
-//     span.onclick = function () {
-//         modal.style.display = "none";
-//         document.body.style.overflow = "auto";
-//     }
-//     window.onclick = function (event) {
-//         if (event.target == modal) {
-//             document.body.style.overflow = "auto";
-//             modal.style.display = "none";
-//         }
-//     }
-//     var data = await getDataParsed('http://markoanastasov-001-site1.itempurl.com/api/cities');
-//     loading = false;
-//     if (loading == false) {
-//         loadingMessage.innerText = "";
-//         for (var i = 0; i < data.length; i++) {
-//             var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-//                 `<h1>${data[i].city}</h1>\n<h2>Вкупно случаи: ${data[i].cases}</h2>\n<h2>Случаи денес: ${data[i].todayCases}</h2>`
-//             );
-//             var el = document.createElement('div');
-//             el.className = 'marker';
-//             new mapboxgl.Marker(el)
-//                 .setLngLat([data[i].longitude, data[i].latitude])
-//                 .setPopup(popup)
-//                 .addTo(map);
-//         }
-//     }
-// }
-
 async function generateMacedonia() {
     var country = await getDataParsed('https://corona.lmao.ninja/v2/countries/mk');
     var loader = document.getElementsByClassName("loader");
@@ -320,14 +267,21 @@ function toggleFunctions() {
         toggleMenu();
         generateOverview();
         generateMacedonia();
-        // showMacedoniaCities();
         generateCountries();
         toggleSlider();
         findCountry();
         redirectTo();
+        redirectToMap();
     }
     catch (err) {
-        console.log("");
+        console.log("An error has occured!");
+    }
+}
+
+function redirectToMap(){
+    var showCites = document.getElementById("show-cities");
+    showCites.onclick = function () {
+        window.location.href = "./cities/cities.html"
     }
 }
 
