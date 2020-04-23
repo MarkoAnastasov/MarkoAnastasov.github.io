@@ -273,7 +273,7 @@ function toggleFunctions() {
         redirectTo();
         redirectToMap();
     }
-    catch (err) {
+    catch (error) {
         console.log("An error has occured!");
     }
 }

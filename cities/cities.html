@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Состојба по градови COVID-19</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../images/corona-icon.png">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 </head>
+
 <body>
     <div id="header">
         <div id="header-title">
@@ -34,6 +37,10 @@
         </div>
     </div>
     <div id="container">
+        <div id="promo">
+            <a href="https://codeacademy.mk/" target="_blank" class="link-two" ><img id="academy-main"
+                src="../images/logo-code-academy.png" alt="code-academy" width="100%"></a>
+        </div>
         <div id="cities-situation">
             <h2>Состојба по градови во С.Македонија</h2>
         </div>
@@ -44,20 +51,18 @@
         </div>
     </div>
     <div id="footer">
-        <h2 id="warning">Вашето здравје и здравјето на вашите придружници, зависат од вашата информираност и одржување
-            на личната и
-            колективната хигиена!</h2>
+        <h2 id="warning">Вашето здравје и здравјето на вашите придружници, зависат од вашата информираност и одржување на личната и колективната хигиена!</h2>
         <div id="code-academy">
             <h2>Апликацијата е изработена од .NET студенти на
                 <br>
                 <a href="https://codeacademy.mk/" target="_blank" class="link-two" id="academy">Code Academy
                     Macedonia</a> © 2020</h2>
             <br>
-            <a href="https://codeacademy.mk/" target="_blank" class="link-two" id="academy"><img id="academy-logo"
-                    src="../images/logo-code-academy.png" alt="code-academy" width="100%"></a>
+            <a href="https://codeacademy.mk/" target="_blank" class="link-two" id="academy"><img id="academy-logo" src="../images/logo-code-academy.png" alt="code-academy" width="100%"></a>
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/app.js"></script>
 </body>
+
 </html>

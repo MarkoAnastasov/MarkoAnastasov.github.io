@@ -26,7 +26,7 @@ async function showMacedoniaCities() {
     map.on('load', function () {
         map.resize();
     });
-    var data = await getDataParsed('https://localhost:44366/api/cities');
+    var data = await getDataParsed('https://ec2-3-8-208-168.eu-west-2.compute.amazonaws.com:443/api/cities');
     if (typeof data != "undefined") {
         for (var i = 0; i < data.length; i++) {
             var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -71,7 +71,7 @@ function toggleFunctions(){
         showMacedoniaCities();
         toggleMenu();
     }
-    catch(err)
+    catch(error)
     {
         console.log("An error has occured!");
     }

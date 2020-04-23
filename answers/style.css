@@ -111,8 +111,20 @@
 
     #container {
         background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    #promo {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    #academy-main {
+        padding-top: 15px;
+        width: 250px;
+        text-align: center;
     }
 
     #answers-width {
@@ -279,6 +291,18 @@
         background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    #promo {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    #academy-main {
+        width: 300px;
+        text-align: center;
     }
 
     #answers-width {

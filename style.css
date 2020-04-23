@@ -132,6 +132,18 @@
         padding-bottom: 30px;
     }
 
+    #promo {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #academy-main {
+        padding-top: 15px;
+        width: 250px;
+        text-align: center;
+    }
+
     #stats-width {
         margin: 0 auto;
         width: 80%;
@@ -143,7 +155,7 @@
     }
 
     #world-stats {
-        padding-top : 30px;
+        padding-top : 10px;
     }
 
     #world-stats img {
@@ -451,6 +463,17 @@
 
     #second-link:hover {
         background-color: #2393D7;
+    }
+
+    #promo {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #academy-main {
+        width: 300px;
+        text-align: center;
     }
 
     #container {

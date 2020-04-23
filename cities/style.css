@@ -124,8 +124,20 @@
 
     #container {
         background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    #promo {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #academy-main {
+        padding-top: 15px;
+        padding-bottom: 10px;
+        width: 250px;
+        text-align: center;
     }
 
     #cities-map {
@@ -267,10 +279,22 @@
         padding-bottom: 30px;
     }
 
+    #promo {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    #academy-main {
+        width: 300px;
+        text-align: center;
+    }
+
     #cities-map {
         width: 90%;
         margin: 0 auto;
-        padding: 30px;
+        padding: 20px;
         margin-bottom: 30px;
     }
 
