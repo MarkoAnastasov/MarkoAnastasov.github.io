@@ -157,12 +157,9 @@
 
     .marker {
         background: url("../images/info.png");
-        opacity: 70%;
         background-size: cover;
         width: 30px;
         height: 30px;
-        border-radius: 50%;
-        cursor: pointer;
     }
 
     #footer {
@@ -309,11 +306,9 @@
 
     .marker {
         background: url("../images/info.png");
-        opacity: 70%;
         background-size: cover;
         width: 30px;
         height: 30px;
-        border-radius: 50%;
         cursor: pointer;
     }
          

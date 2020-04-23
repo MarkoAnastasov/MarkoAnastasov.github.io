@@ -19,13 +19,10 @@ async function showMacedoniaCities() {
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [21.743258, 41.6137143],
+        center: [21.743258, 41.613714],
         zoom: 8
     });
     map.addControl(new mapboxgl.NavigationControl());
-    map.on('load', function () {
-        map.resize();
-    });
     var data = await getDataParsed('https://ec2-3-8-208-168.eu-west-2.compute.amazonaws.com:443/api/cities');
     if (typeof data != "undefined") {
         for (var i = 0; i < data.length; i++) {
