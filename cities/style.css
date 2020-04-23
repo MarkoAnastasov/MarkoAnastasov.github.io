@@ -162,6 +162,15 @@
         height: 30px;
     }
 
+    .mapboxgl-popup {
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .mapboxgl-popup-content {
+        text-align: center;
+    }
+
     #footer {
         background-color: #314080;
         color: white;
@@ -314,6 +323,10 @@
          
     .mapboxgl-popup {
         max-width: 200px;
+        text-align: center;
+    }
+
+    .mapboxgl-popup-content {
         text-align: center;
     }
 
