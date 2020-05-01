@@ -23,7 +23,7 @@ async function showMacedoniaCities() {
         zoom: 8
     });
     map.addControl(new mapboxgl.NavigationControl());
-    var data = await getDataParsed('https://ec2-3-8-208-168.eu-west-2.compute.amazonaws.com:443/api/cities');
+    var data = await getDataParsed('http://ec2-3-8-208-168.eu-west-2.compute.amazonaws.com/CovidData/api/cities');
     if (typeof data != "undefined") {
         for (var i = 0; i < data.length; i++) {
             var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(

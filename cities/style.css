@@ -5,6 +5,85 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#header {
+    width: 100%;
+    background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
+    border-bottom: 2px solid #9bc6e7;
+}
+
+#header-title {
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #EEEFF2;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#first-title {
+    color: #374895;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+#second-title {
+    color: #2393D7;
+    letter-spacing: 5px;
+}
+
+#menu-width {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+#container {
+    background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
+    padding-bottom: 30px;
+}
+
+#promo {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 2px solid #314080;
+}
+
+.marker {
+    background: url("../images/info.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+}
+
+#footer {
+    background-color: #314080;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
 #academy {
     text-decoration: underline;
 }
@@ -33,32 +112,8 @@
 }
 
 @media only screen and (max-width: 750px) {
-    #header {
-        width: 100%;
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        border-bottom: 2px solid #9bc6e7;
-    }
-
     #header-title {
         width: 80%;
-        margin: 0 auto;
-        padding: 30px;
-        background-color: #EEEFF2;
-        border-radius: 0px 0px 5px 5px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    #first-title {
-        color: #374895;
-        font-size: 30px;
-        letter-spacing: 5px;
-        font-weight: bold;
-    }
-
-    #second-title {
-        color: #2393D7;
-        letter-spacing: 5px;
     }
 
     #menu {
@@ -69,15 +124,7 @@
     }
 
     #menu-width {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
         width: 70%;
-        margin: 0 auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: white;
-        font-weight: bold;
     }
 
     #menu-links{
@@ -122,15 +169,8 @@
         background-color: #314080;
     }
 
-    #container {
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        padding-bottom: 30px;
-    }
-
     #promo {
         width: 300px;
-        margin: 0 auto;
-        text-align: center;
     }
 
     #academy-main {
@@ -141,41 +181,17 @@
     }
 
     #cities-map {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         margin-bottom: 30px;
     }
 
     #map {
-        height: 500px;
-        width: 90%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        border: 2px solid #314080;
         margin-top: 10px;
     }
 
-    .marker {
-        background: url("../images/info.png");
-        background-size: cover;
-        width: 30px;
-        height: 30px;
-    }
-
-    .mapboxgl-popup {
-        max-width: 200px;
-    }
-
-    .mapboxgl-popup-content {
-        text-align: center;
-    }
-
     #footer {
-        background-color: #314080;
-        color: white;
-        text-align: center;
         font-size: 10px;
-        padding: 15px;
     }
 
     #warning {
@@ -188,32 +204,8 @@
 }
 
 @media only screen and (min-width: 750px) {
-    #header {
-        width: 100%;
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        border-bottom: 2px solid #9bc6e7
-    }
-
     #header-title {
         width: 85%;
-        margin: 0 auto;
-        padding: 30px;
-        background-color: #EEEFF2;
-        border-radius: 0px 0px 5px 5px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    #first-title {
-        color: #374895;
-        font-size: 30px;
-        letter-spacing: 5px;
-        font-weight: bold;
-    }
-
-    #second-title {
-        color: #2393D7;
-        letter-spacing: 5px;
     }
 
     #menu {
@@ -235,15 +227,7 @@
     }
 
     #menu-width {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
         width: 80%;
-        margin: 0 auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: white;
-        font-weight: bold;
     }
 
     .link{
@@ -279,21 +263,20 @@
     }
 
     #container {
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
         padding-top: 30px;
-        padding-bottom: 30px;
     }
 
     #promo {
         width: 400px;
-        margin: 0 auto;
-        text-align: center;
-        margin-bottom: 25px;
     }
 
     #academy-main {
         width: 300px;
         text-align: center;
+    }
+
+    #cities-situation {
+        margin-top: 20px;
     }
 
     #cities-map {
@@ -303,37 +286,12 @@
         margin-bottom: 30px;
     }
 
-    #map {
-        height: 500px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        border: 2px solid #314080;
-    }
-
     .marker {
-        background: url("../images/info.png");
-        background-size: cover;
-        width: 30px;
-        height: 30px;
         cursor: pointer;
-    }
-         
-    .mapboxgl-popup {
-        max-width: 200px;
-    }
-
-    .mapboxgl-popup-content {
-        text-align: center;
     }
 
     #footer {
-        background-color: #314080;
-        color: white;
-        text-align: center;
         font-size: 15px;
-        padding: 15px;
     }
 
     #warning {

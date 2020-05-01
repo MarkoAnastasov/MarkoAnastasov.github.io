@@ -5,6 +5,184 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#header {
+    width: 100%;
+    background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
+    border-bottom: 2px solid #9bc6e7;
+}
+
+#header-title {
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #EEEFF2;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#first-title {
+    color: #374895;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+#second-title {
+    color: #2393D7;
+    letter-spacing: 5px;
+}
+
+#menu-width {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+#container {
+    background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
+    padding-bottom: 30px;
+}
+
+#promo {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#stats-width {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+#world {
+    border-bottom: 1px solid #9099c0;
+}
+
+#macedonia {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #9099c0;
+}
+
+#mkd-chart {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 12px -3px #314080;
+}
+
+#each-country {
+    color: #314080;
+    margin-top: 20px;
+}
+
+#question {
+    margin-top: 20px;
+    border-bottom: 1px solid #9099c0;
+    padding-top: 10px;
+    color: #314080;
+}
+
+#situation {
+    color: #314080;
+}
+
+#situation-cities {
+    color: #314080;
+    margin-bottom: 10px;
+}
+
+#show-cities {
+    background-color: #314080;
+    padding:10px;
+    margin: 0 auto;
+    margin-top : 10px;
+    margin-bottom : 10px;
+    color: white;
+    font-size: 20px;
+    border-radius: 2px;
+}
+
+.numbers {
+    font-size: 40px;
+}
+
+.div-stats {
+    background-color: #ebedf1;
+    color: #314080;
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 12px -3px #314080;
+}
+
+#find-more {
+    background-color: #314080;
+    padding:10px;
+    margin: 0 auto;
+    margin-top : 20px;
+    margin-bottom : 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 2px;
+}
+
+.div-creator {
+    font-size: 17px;
+    border: 1px solid #314080;
+    padding:5%;
+    border-radius: 2px;
+    margin-right: 5%;
+    left:0;
+    right: 0;
+}
+
+.country-flag{
+    height: 80px;
+    width: 50%;
+}
+
+.header-border {
+    border-bottom : 1px solid #314080;
+}
+
+#search-section {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#search-button {
+    background-color: #314080;
+    padding:10px;
+    margin: 0 auto;
+    margin-top : 10px;
+    color: white;
+    font-size: 20px;
+    border-radius: 2px;
+}
+
+#country-name-search {
+    font-size: 25px;
+    color: #314080;
+    background-color: #ebedf1 ;
+    border: 1px solid #314080;
+    border-radius: 2px;
+    padding: 3px 5px;
+}
+
+#footer {
+    background-color: #314080;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
 #academy {
     text-decoration: underline;
 }
@@ -42,32 +220,8 @@
 }
 
 @media only screen and (max-width: 750px) {
-    #header {
-        width: 100%;
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        border-bottom: 2px solid #9bc6e7
-    }
-
     #header-title {
         width: 80%;
-        margin: 0 auto;
-        padding: 30px;
-        background-color: #EEEFF2;
-        border-radius: 0px 0px 5px 5px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    #first-title {
-        color: #374895;
-        font-size: 30px;
-        letter-spacing: 5px;
-        font-weight: bold;
-    }
-
-    #second-title {
-        color: #2393D7;
-        letter-spacing: 5px;
     }
 
     #menu {
@@ -75,18 +229,6 @@
         position: sticky;
         top: 0;
         z-index: 9999;
-    }
-
-    #menu-width {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
-        width: 70%;
-        margin: 0 auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: white;
-        font-weight: bold;
     }
 
     #menu-links{
@@ -127,31 +269,14 @@
         background-color: #314080;
     }
 
-    #container {
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        padding-bottom: 30px;
-    }
-
     #promo {
         width: 300px;
-        margin: 0 auto;
-        text-align: center;
     }
 
     #academy-main {
         padding-top: 15px;
         width: 250px;
         text-align: center;
-    }
-
-    #stats-width {
-        margin: 0 auto;
-        width: 80%;
-        text-align: center;
-    }
-
-    #world {
-        border-bottom: 1px solid #9099c0;
     }
 
     #world-stats {
@@ -164,31 +289,9 @@
         padding-bottom: 30px;
     }
 
-    #macedonia {
-        margin-top: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #9099c0;
-    }
-
     #mkd-chart {
         width: 100%; 
         height: 400px;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
-    }
-
-    #each-country {
-        margin-top: 20px;
-    }
-
-    #question {
-        margin-top: 20px;
-        border-bottom: 1px solid #9099c0;
-    }
-
-    #situation {
-        color: #314080;
     }
 
     #mkd-cities {
@@ -198,56 +301,8 @@
         margin-bottom: 20px;
     }
 
-    #situation-cities {
-        color: #314080;
-        margin-bottom: 10px;
-    }
-
     #show-cities {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 10px;
-        margin-bottom : 10px;
-        color: white;
-        font-size: 20px;
         width: 200px;
-        border-radius: 2px;
-        cursor: pointer;
-    }
-
-    #map {
-        height: 500px;
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-
-    .marker {
-        background: url("./images/info.png");
-        opacity: 70%;
-        background-size: cover;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
-         
-    .mapboxgl-popup {
-        max-width: 200px;
-        text-align: center;
-    }
-    
-    .numbers {
-        font-size: 40px;
-    }
-
-    .div-stats {
-        background-color: #ebedf1;
-        color: #314080;
-        padding: 10px;
-        border-radius: 2px;
-        margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
     }
 
     #macedonia-stats img {
@@ -256,21 +311,8 @@
         margin-bottom: 20px;
     }
 
-    #question {
-        padding-top: 10px;
-        color: #314080 ;
-    }
-
     #find-more {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 20px;
-        margin-bottom : 30px;
-        color: white;
-        font-size: 20px;
         width: 170px;
-        border-radius: 2px;
     }
 
     #country-details {
@@ -285,29 +327,6 @@
         text-align: center;
         white-space: nowrap;
     }
-    
-    #each-country {
-        color: #314080;
-    }
-
-    .div-creator {
-        font-size: 17px;
-        border: 1px solid #314080;
-        padding:5%;
-        border-radius: 2px;
-        margin-right: 5%;
-        left:0;
-        right: 0;
-    }
-
-    .country-flag{
-        height: 80px;
-        width: 50%;
-    }
-
-    .header-border {
-        border-bottom : 1px solid #314080;
-    }
 
     #swipe {
         color: #314080;
@@ -319,32 +338,16 @@
     }
 
     #search-section {
-        text-align: center;
-        font-size: 25px;
         margin-top: 20px;
-        font-weight: bold;
     }
 
     #search-button {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 10px;
-        color: white;
-        font-size: 20px;
         width: 120px;
-        border-radius: 2px;
     }
 
     #country-name-search {
-        font-size: 25px;
-        color: #314080;
-        background-color: #ebedf1 ;
-        border: 1px solid #314080;
-        border-radius: 2px;
         text-align: center;
         width: 230px;
-        padding: 3px 5px;
     }
 
     #message-error {
@@ -361,11 +364,7 @@
     }
 
     #footer {
-        background-color: #314080;
-        color: white;
-        text-align: center;
         font-size: 10px;
-        padding: 15px;
     }
 
     #warning {
@@ -379,32 +378,8 @@
 }
 
 @media only screen and (min-width: 750px) {
-    #header {
-        width: 100%;
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
-        border-bottom: 2px solid #9bc6e7
-    }
-
     #header-title {
         width: 85%;
-        margin: 0 auto;
-        padding: 30px;
-        background-color: #EEEFF2;
-        border-radius: 0px 0px 5px 5px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    #first-title {
-        color: #374895;
-        font-size: 30px;
-        letter-spacing: 5px;
-        font-weight: bold;
-    }
-
-    #second-title {
-        color: #2393D7;
-        letter-spacing: 5px;
     }
 
     #menu {
@@ -426,15 +401,7 @@
     }
 
     #menu-width {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
         width: 80%;
-        margin: 0 auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: white;
-        font-weight: bold;
     }
 
     .link{
@@ -467,8 +434,6 @@
 
     #promo {
         width: 400px;
-        margin: 0 auto;
-        text-align: center;
     }
 
     #academy-main {
@@ -477,19 +442,7 @@
     }
 
     #container {
-        background-image: linear-gradient(to right bottom, #eeeff2, #dde4f0, #cad9ee, #b4cfeb, #9bc6e7);
         padding-top: 30px;
-        padding-bottom: 30px;
-    }
-
-    #stats-width {
-        width: 80%;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    #world {
-        border-bottom: 1px solid #9099c0;
     }
 
     #world-stats {
@@ -502,35 +455,13 @@
         padding-bottom: 30px;
     }
 
-    #macedonia {
-        margin-top: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #9099c0;
-    }
-
     #mkd-chart {
         width: 80%; 
         height: 500px;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
     }
 
     #mkd-chart:hover{
         box-shadow: 0px 0px 15px 0px #314080;
-    }
-
-    #each-country {
-        margin-top: 20px;
-    }
-
-    #question {
-        margin-top: 20px;
-        border-bottom: 1px solid #9099c0;
-    }
-
-    #situation {
-        color: #314080;
     }
 
     #mkd-cities {
@@ -542,61 +473,16 @@
         border-radius: 2px;
     }
 
-    #situation-cities {
-        color: #314080;
-        margin-bottom: 10px;
-    }
-
     #show-cities {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 10px;
-        margin-bottom : 10px;
-        color: white;
-        font-size: 20px;
         width: 180px;
-        border-radius: 2px;
         cursor: pointer;
     }
 
     #show-cities:hover {
-        background-color: #2393D7 ;
-    }
-
-    #map {
-        height: 500px;
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-
-    .marker {
-        background: url("./images/info.png");
-        opacity: 70%;
-        background-size: cover;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-         
-    .mapboxgl-popup {
-        max-width: 200px;
-        text-align: center;
-    }
-
-    .numbers {
-        font-size: 40px;
+        background-color: #2393D7;
     }
 
     .div-stats {
-        background-color: #ebedf1;
-        color: #314080;
-        padding: 10px;
-        border-radius: 2px;
-        margin-bottom: 20px;
-        box-shadow: 0px 0px 12px -3px #314080;
         width: 40%;
     }
 
@@ -617,26 +503,13 @@
         margin-bottom: 20px;
     }
 
-    #question {
-        padding-top: 10px;
-        color: #314080 ;
-    }
-
     #find-more {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 20px;
-        margin-bottom : 30px;
-        color: white;
-        font-size: 20px;
         width: 180px;
-        border-radius: 2px;
         cursor: pointer;
     }
 
     #find-more:hover {
-        background-color: #2393D7 ;
+        background-color: #2393D7;
     }
 
     #country-details {
@@ -654,29 +527,6 @@
         width: 50%;
         cursor: pointer;
     }
-    
-    #each-country {
-        color: #314080;
-    }
-
-    .div-creator {
-        font-size: 17px;
-        border: 1px solid #314080;
-        padding:5%;
-        border-radius: 2px;
-        margin-right: 5%;
-        left:0;
-        right: 0;
-    }
-
-    .country-flag{
-        height: 80px;
-        width: 50%;
-    }
-
-    .header-border {
-        border-bottom : 1px solid #314080;
-    }
 
     #swipe {
         color: #314080;
@@ -689,35 +539,16 @@
     }
 
     #search-section {
-        text-align: center;
-        font-size: 25px;
         margin-top: 30px;
-        font-weight: bold;
     }
 
     #search-button {
-        background-color: #314080;
-        padding:10px;
-        margin: 0 auto;
-        margin-top : 20px;
-        color: white;
-        font-size: 20px;
         width: 140px;
-        border-radius: 2px;
     }
 
     #search-button:hover {
-        background-color: #2393D7 ;
+        background-color: #2393D7;
         cursor: pointer;
-    }
-
-    #country-name-search {
-        font-size: 25px;
-        color: #314080;
-        background-color: #ebedf1 ;
-        border: 1px solid #314080;
-        border-radius: 2px;
-        padding: 3px 5px;
     }
 
     #message-error {
@@ -729,11 +560,7 @@
     }
 
     #footer {
-        background-color: #314080;
-        color: white;
-        text-align: center;
         font-size: 15px;
-        padding: 15px;
     }
 
     #warning {
