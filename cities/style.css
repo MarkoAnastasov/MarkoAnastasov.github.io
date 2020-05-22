@@ -48,11 +48,6 @@
     padding-bottom: 30px;
 }
 
-#promo {
-    margin: 0 auto;
-    text-align: center;
-}
-
 #map {
     height: 500px;
     width: 100%;
@@ -82,10 +77,6 @@
     color: white;
     text-align: center;
     padding: 15px;
-}
-
-#academy {
-    text-decoration: underline;
 }
 
 .link-two:link {
@@ -169,15 +160,8 @@
         background-color: #314080;
     }
 
-    #promo {
-        width: 300px;
-    }
-
-    #academy-main {
-        padding-top: 15px;
-        padding-bottom: 10px;
-        width: 250px;
-        text-align: center;
+    #cities-situation {
+        padding-top: 10px;
     }
 
     #cities-map {
@@ -196,10 +180,6 @@
 
     #warning {
         padding-bottom: 10px;
-    }
-
-    #code-academy img{
-        width: 200px;
     }
 }
 
@@ -266,15 +246,6 @@
         padding-top: 30px;
     }
 
-    #promo {
-        width: 400px;
-    }
-
-    #academy-main {
-        width: 300px;
-        text-align: center;
-    }
-
     #cities-situation {
         margin-top: 20px;
     }
@@ -298,11 +269,6 @@
         width: 70%;
         margin: 0 auto;
         padding-bottom: 30px;
-    }
-
-    #code-academy img{
-        width: 270px;
-        cursor: pointer;
     }
 
     #no-data{

@@ -49,11 +49,6 @@
     padding-bottom: 30px;
 }
 
-#promo {
-    margin: 0 auto;
-    text-align: center;
-}
-
 #stats-width {
     margin: 0 auto;
     width: 80%;
@@ -183,10 +178,6 @@
     padding: 15px;
 }
 
-#academy {
-    text-decoration: underline;
-}
-
 #total-tests{
     margin-bottom : 30px;
 }
@@ -267,16 +258,6 @@
 
     #third-link{
         background-color: #314080;
-    }
-
-    #promo {
-        width: 300px;
-    }
-
-    #academy-main {
-        padding-top: 15px;
-        width: 250px;
-        text-align: center;
     }
 
     #world-stats {
@@ -371,10 +352,6 @@
         padding-bottom: 10px;
     }
 
-    #code-academy img{
-        width: 200px;
-    }
-
 }
 
 @media only screen and (min-width: 750px) {
@@ -430,15 +407,6 @@
 
     #second-link:hover {
         background-color: #2393D7;
-    }
-
-    #promo {
-        width: 400px;
-    }
-
-    #academy-main {
-        width: 300px;
-        text-align: center;
     }
 
     #container {
@@ -567,10 +535,5 @@
         width: 70%;
         margin: 0 auto;
         padding-bottom: 30px;
-    }
-
-    #code-academy img{
-        width: 270px;
-        cursor: pointer;
     }
 }

@@ -49,11 +49,6 @@
     padding-bottom: 30px;
 }
 
-#promo {
-    margin: 0 auto;
-    text-align: center;
-}
-
 .answer-design {
     background-color: #ebedf1;
     color: #314080;
@@ -67,10 +62,6 @@
     color: white;
     text-align: center;
     padding: 15px;
-}
-
-#academy {
-    text-decoration: underline;
 }
 
 .link-two:link {
@@ -133,21 +124,11 @@
         background-color: #314080;
     }
 
-    #promo {
-        width: 300px;
-    }
-
-    #academy-main {
-        padding-top: 15px;
-        width: 250px;
-        text-align: center;
-    }
-
     #answers-width {
         margin: 0 auto;
         width: 80%;
         text-align: center;
-        margin-top: 20px;
+        padding-top: 20px;
     }
 
     #answers-width h2 {
@@ -197,10 +178,6 @@
 
     #warning {
         padding-bottom: 10px;
-    }
-
-    #code-academy img{
-        width: 200px;
     }
 }
 
@@ -257,15 +234,6 @@
 
     #second-link:hover {
         background-color: #2393D7;
-    }
-
-    #promo {
-        width: 400px;
-    }
-
-    #academy-main {
-        width: 300px;
-        text-align: center;
     }
 
     #container {
@@ -339,11 +307,6 @@
         width: 70%;
         margin: 0 auto;
         padding-bottom: 30px;
-    }
-
-    #code-academy img{
-        width: 270px;
-        cursor: pointer;
     }
 }
 
